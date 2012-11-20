@@ -1,7 +1,7 @@
-
+Ext.ns('Ext.util'); // Fix for 2.1
 //<debug>
 Ext.Loader.setPath({
-    'Ext': 'sdk/src'
+    'Ext': 'touch/src'
 });
 //</debug>
 
@@ -10,6 +10,11 @@ Ext.Loader.setPath({
  *
  * Here we define the names of all our Profiles, Models, Stores, Views and Controllers to include in the application.
  */
+
+Ext.require([
+    'Ext.field.Text'
+]);
+
 Ext.application({
 
     name: 'WL',  // This is the namespace for our application.
@@ -51,7 +56,7 @@ Ext.application({
     launch: function() {
 
         // Initialize Facebook with our app ID
-        WL.Facebook.initialize('358904677456171');
+        WL.Facebook.initialize('1111111111111111');
 
         if (window.localStorage && window.localStorage.WL) {
             var parsed = JSON.parse(window.localStorage.WL);

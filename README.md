@@ -25,26 +25,20 @@ method inside  server-side/facebook.js to see how this works in detail.
 
 ## Building
 
-You will need a copy of Sencha Touch 2 from http://www.sencha.com/touch
+This Source code does not include Sencha touch library, but assumes that You will be using version 2.1 of framework.
 
-The source code for Sencha Touch is not included in this repo, so you'll need to generate a 'test' application and copy
-the sdk folder from the generated files into the `public` subdirectory of this project. See the Touch 2 Getting Started
-Guide for info on how to do this.
+Please check our homepage for newer version : http://www.sencha.com/products/touch/download/
 
-Once you have the sdk folder in place, run these commands:
+You will also need Sencha CMD to build your application. Please visit http://www.sencha.com/products/sencha-cmd/download
 
-	cd public
-	mv app.html index.html
-	sencha app build production
-	mv build/production/index.html build/production/app.html
-	mv index.html app.html
-	sed  -i "" "s/index\.html/app.html/" build/production/cache.manifest
-	cd ..
+After download, unzip the framework file and copy the following directories and files to the touch sdk folder
 
-This is neccessary due to the fact that the static file generator in Connect will serve index.html files automatically,
-so we need to rename our index.html file to app.html. Unfortunately, the Sencha build command needs the main entry
-point to the app to be named index.html. The solution is to rename app.html to index.html for the build process, then
-rename it back to app.html.
+ /microloader/*
+ /resources/*
+ /src/*
+ /license.txt
+ /sencha-touch* files
+ /version.txt
 
 ## Config
 
@@ -54,28 +48,33 @@ You will need to create a file `config.js` with this content:
 	    // Base URL of the App (must be a publically accessible URL)
 	    redirect_uri:  'APP URL',
 
-	    // Facebook Application ID
+	    // Facebook Application ID, obtain from Facebook
 	    client_id:     'APPID',
 
-	    // Facebook Application Secret
+	    // Facebook Application Secret, obtain from Facebook
 	    client_secret: 'SECRET',
 
-	    // MongoDB endpoint
+	    // MongoDB connection string
 	    mongoDb:       'mongodb://USER:PASS@SERVER:PORT/DATABASE',
 
 	    // Session encyption key
-	    sessionSecret: 'RANDOM STRING',
+	    sessionSecret: 'RANDOM STRING', // any string, like : vwertgwq45ygwrtb
 
-	    appUrl: 'PUBLIC APP URL',
-	    fbNamespace: 'FACEBOOK NAMESPACE',
+	    appUrl: 'PUBLIC APP URL', // where your application is hosted, e.g. http://mygreatapp.com
 
-	    rottenTomatoesApiKey: 'ROTTEN TOMATOES API KEY'
+	    fbNamespace: 'FACEBOOK NAMESPACE', //obtain from Facebook
+
+	    rottenTomatoesApiKey: 'ROTTEN TOMATOES API KEY' // sign up and obtain your own key
 	}
+
+Change Your Facebook app ID inside app.js launch method:
+
+ WL.Facebook.initialize('12345678901234');
 
 ## Deploying
 
 Follow the instructions in the Jog With Friends example from the Sencha Touch 2 SDKs to learn how to set up your
-Facebook application, Node.js, MongoDB and Heroku.
+Facebook application, Node.js, MongoDB and Heroku hosting service.
 
 The commands you need to set up Git for use with Heroku are:
 
@@ -85,4 +84,30 @@ The commands you need to set up Git for use with Heroku are:
 	git commit -m "Init"
 	git push heroku master
 
-More detailed instructions on building and deploying this app will appear soon.
+
+## Scraping
+
+Use the same config information for lib/scrape.js
+
+Then run node lib/scrape.js to import database.
+You must observe console messages like this:
+
+Scraping Opening movies...
+Parsed 16 movies.
+Updated 771320794
+Updated 771320299
+Updated 771319353
+Updated 771318628
+
+....
+
+## Going production
+
+The Express framework uses the NODE_ENV environment variable to determine some behaviors related to caching.
+If you’re using Express, set a config var with this value:
+
+heroku config:add NODE_ENV=production
+
+Then, if you want to switch back to production:
+
+heroku config:set NODE_ENV=development

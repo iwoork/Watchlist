@@ -72,4 +72,4 @@ Ext.define('WL.view.Main', {
             });
         }
     }
-})
+});

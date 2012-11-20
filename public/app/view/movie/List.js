@@ -16,21 +16,27 @@ Ext.define('WL.view.movie.List', {
 	config: {
 
 		store: 'Movies',
-		plugins: 'listpaging',
+
+        plugins: [
+            { xclass: 'Ext.plugin.ListPaging' } //To use this plugin its very important to include also CSS mixin : @include sencha-list-paging;
+        ],
+
 		itemCls: 'expandedMovie',
 
-		// Specifying the `items` config on an Ext.List will add them at the top of the list, before the list itself.
+        itemHeight:114, //specify customItemHeight for 2.1
+//		// Specifying the `items` config on an Ext.List will add them at the top of the list, before the list itself.
 		items: [
-		    { xtype: 'movieSortBar' },
-		    { xtype: 'movieSearchBar' }
-		],
 
-		// We want to hide the search and sort bars initially, so we set an offset on the scroller
-		scrollable: {
-			initialOffset: {
-				y: 100
-			}
-		},
+            { xtype: 'movieSortBar' , docked:'top'},
+            { xtype: 'movieSearchBar' , docked:'top' , hidden:true},
+            {
+                xtype: 'container',
+                cls: 'promo',
+                itemId:'promo-container',
+                docked:'bottom',
+                html: '<span class="logo"></span>Brought to you by Sencha Touch 2.1 <button>Learn More</button>'
+            }
+		],
 
 		loadingText: null
 	},

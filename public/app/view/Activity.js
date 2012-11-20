@@ -4,7 +4,6 @@ Ext.define('WL.view.Activity', {
 	xtype: 'activity',
 
 	config: {
-
 		store: 'Activity',
 		cls: 'fbActivity',
 

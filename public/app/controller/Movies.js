@@ -22,8 +22,7 @@ Ext.define('WL.controller.Movies', {
 
         control: {
             movieList: {
-                tapMovie:    'onMovieTap',
-                loadmorecmpadded: 'onLoadMoreCmpAdded'
+                tapMovie:    'onMovieTap'
             },
             movieDetail: {
                 postToWall:  'onPostToWall',
@@ -67,6 +66,13 @@ Ext.define('WL.controller.Movies', {
             localStorageData: 'onLocalStorageData',
             scope: this
         });
+//        var learnMore = Ext.ComponentQuery.query('promo-container');
+//
+//        learnMore.element.on({
+//            tap: this.onAbout,
+//            scope: this,
+//            delegate: 'button'
+//        });
     },
 
     onLocalStorageData: function(data) {
@@ -106,21 +112,12 @@ Ext.define('WL.controller.Movies', {
     },
 
     onFirstLoad: function(profileId) {
-        this.getSearchBar().setStyle('visibility: visible;');
-        this.getSortBar().setStyle('visibility: visible;');
-        this.getMovieList().setScrollToTopOnRefresh(false);
-
         Ext.getCmp('fbProfilePic').setData({
             profileId: profileId
         });
-    },
 
-    onLoadMoreCmpAdded: function() {
-        var learnMore = this.getMovieList().add({
-            xtype: 'container',
-            cls: 'promo',
-            html: '<span class="logo"></span>Brought to you by Sencha Touch 2 <button>Learn More</button>'
-        });
+        var learnMore = Ext.ComponentQuery.query('#promo-container')[0];
+
         learnMore.element.on({
             tap: this.onAbout,
             scope: this,
@@ -132,7 +129,12 @@ Ext.define('WL.controller.Movies', {
      * When a user clicks the search button, scroll to the top
      */
     onSearchButton: function() {
-        this.getMovieList().getScrollable().getScroller().scrollTo(0, 0, 'animation');
+        var bar = this.getMovieList().down('movieSearchBar');
+        if(bar.getHidden()){
+            bar.show({type: 'fade'});
+        }else{
+            bar.hide();
+        }
     },
 
     onMovieTap: function(record) {
@@ -222,6 +224,7 @@ Ext.define('WL.controller.Movies', {
                 top: 0,
                 left: 0,
                 modal: true,
+                cls:'float-panel', //2.1
                 hideOnMaskTap: true,
                 items: [
                     {
@@ -297,8 +300,8 @@ Ext.define('WL.controller.Movies', {
     onAbout: function() {
         Ext.create('WL.view.Dialog', {
             msg: [
-                "<p>The Watch List was build with Sencha Touch, a Javascript framework that lets you easily build ",
-                   "beautiful mobile apps using Javascript, HTML5 and CSS3.</p>",
+                "<p>The Watch List was built with Sencha Touch, a Javascript framework that lets you easily build ",
+                "beautiful mobile apps using Javascript, HTML5 and CSS3.</p>"
             ].join(''),
             buttons: [
                 {

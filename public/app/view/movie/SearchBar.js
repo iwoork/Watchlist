@@ -9,7 +9,7 @@ Ext.define('WL.view.movie.SearchBar', {
 	config: {
 
     	scrollable: false, // Override the form panel
-    	style: 'visibility: hidden',
+    	//style: 'visibility: hidden',
         cls: 'search',
         id: 'searchContainer',
 

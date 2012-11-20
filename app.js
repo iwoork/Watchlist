@@ -1,4 +1,3 @@
-
 var _ = require('underscore'),
     express = require('express'),
     connect = require('connect'),
@@ -19,22 +18,40 @@ graph = require('fbgraph');
 util = require('./lib/util');
 require('./lib/database');
 
+//console.log(config);
 
 // App server setup
 
 var app = module.exports = express.createServer();
 
 app.configure('development', function() {
+    //app.use(express.logger());
     app.use(connect.static('./public'));
     app.set('appIndex', './public/app.html')
 });
 
 app.configure('production', function() {
-    app.use(connect.static('./public/build/production'));
-    app.set('appIndex', './public/build/production/app.html');
+    // Redirect from www
+//    app.use(function(req, res, next) {
+//        if (req.headers['host'] == 'watchlistapp.com') {
+//            res.redirect('http://www.watchlistapp.com' + req.url)
+//        } else {
+//            next();
+//        }
+//    });
+
+    app.use(connect.static('./public/build/WL/production')); // align to your path
+    app.set('appIndex', './public/build/WL/production/app.html'); //align to your path
 });
 
 app.configure(function() {
+    // Cors headers
+    app.use(function (req, res, next) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+        next();
+    });
 
     app.use(connect.cookieParser());
 
@@ -65,7 +82,7 @@ app.get('/', function(req, res) {
 
     var ua = req.headers['user-agent'];
 
-    if (ua.match(/(Android|iPhone|iPod|iPad|Playbook)/)) {
+    if (ua.match(/(Android|iPhone|iPod|iPad|Playbook|Silk|Kindle)/)) {
         res.sendfile(app.set('appIndex'));
     } else {
         res.render('web_meta.html.ejs', {
@@ -80,6 +97,7 @@ app.get('/', function(req, res) {
 app.all('/app.html', function(req, res) {
     res.sendfile(app.set('appIndex'));
 });
+
 
 /**
  * Handle requests from the Facebook app.
@@ -239,7 +257,7 @@ app.get('/activity', fb.checkSession, fb.getFriendIds, function(req, res) {
             return;
         }
 
-        var response = [], action
+        var response = [], action;
 
         _.each(viewings, function(viewing) {
 

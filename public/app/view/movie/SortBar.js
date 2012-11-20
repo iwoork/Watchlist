@@ -10,7 +10,7 @@ Ext.define('WL.view.movie.SortBar', {
 
 		cls: 'sort',
 		id: 'sortContainer',
-		style: 'visibility: hidden',
+		//style: 'visibility: hidden',
 
 		items: [
 			{
