@@ -4,7 +4,7 @@ Ext.define('WL.store.Movies', {
 
     config: {
         model: 'WL.model.Movie',
-
+		autoload: true,
         proxy: {
 			url: 'https://api.mongolab.com/api/1/databases/chowheredb/collections/restaurants',
 			type: 'rest',
