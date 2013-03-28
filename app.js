@@ -112,7 +112,7 @@ app.post('/', function(req, res) {
     } else {
         res.render('web_meta.html.ejs', {
             layout: 'layout.html.ejs',
-            title: 'Watch List',
+            title: 'Chowhere',
             appUrl: '/app.html?deviceType=Phone',
             showDemo: false
         });
