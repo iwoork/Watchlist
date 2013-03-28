@@ -20,7 +20,7 @@ exports.config = {
       host: 'ds035237.mongolab.com',
       port: 35237,
       username: 'mongochow',
-      password: 'k3f12eNn',
+      password: 'k3f12eNn'
     },
 
     // Session encyption key

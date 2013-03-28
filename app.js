@@ -58,7 +58,7 @@ app.configure(function() {
     app.use(express.session({
         secret: config.sessionSecret,
         //store: new MongoStore({ url: config.mongoDb })
-        store: new MongoStore({ url: config.db })
+        store: new MongoStore(config.db )
     }));
 
     app.use(connect.bodyParser());
