@@ -53,7 +53,7 @@ app.configure(function() {
         next();
     });
 
-    app.use(connect.cookieParser());
+    app.use(express.cookieParser());
 
     app.use(express.session({
         secret: config.sessionSecret,
