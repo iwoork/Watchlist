@@ -51,7 +51,7 @@ Ext.define('WL.view.Main', {
 		            	xtype: 'component',
 		            	cls: 'fbProfilePic',
 		            	id: 'fbProfilePic',
-		            	tpl: '<img src="https://graph.facebook.com/{profileId}/picture?type=square" />'
+		            	tpl: '<img src="http://graph.facebook.com/{profileId}/picture?type=square" />'
 		            }
 		        ]
 		    },
