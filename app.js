@@ -87,7 +87,7 @@ app.get('/', function(req, res) {
     } else {
         res.render('web_meta.html.ejs', {
             layout: 'layout.html.ejs',
-            title: 'Watch List',
+            title: 'Chowhere',
             appUrl: '/app.html?deviceType=Phone',
             showDemo: Boolean(ua.match(/(AppleWebKit)/))
         });
@@ -190,7 +190,7 @@ app.all('/movie/:id', function(req, res, next) {
         res.render('movie_meta.html.ejs', {
             locals: {
                 movie: cache,
-                title: cache.title + ' | The Watch List',
+                title: cache.title + ' | Chowhere',
                 appUrl: app.set('appIndex') + '#movies/' + req.params.id,
                 showDemo: showDemo
             },
@@ -202,7 +202,7 @@ app.all('/movie/:id', function(req, res, next) {
                 res.render('movie_meta.html.ejs', {
                     locals: {
                         movie: doc,
-                        title: doc.title + ' | The Watch List',
+                        title: doc.title + ' | Chowhere',
                         appUrl: app.set('appIndex') + '#movies/' + req.params.id,
                         showDemo: showDemo
                     },
