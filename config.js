@@ -14,6 +14,14 @@ exports.config = {
     //mongoDb:       'mongodb://USER:PASS@SERVER:PORT/DATABASE',
     //mongoDb:       'mongodb://user:mypass@aaaaaaa.mongolab.com:27847/watchlist',
     mongoDb: 'mongodb://mongochow:k3f12eNn@ds035237.mongolab.com:35237/chowheredb',
+    
+    db: {
+      db: 'chowheredb',
+      host: 'ds035237.mongolab.com',
+      port: 35237,
+      username: 'mongochow',
+      password: 'k3f12eNn',
+    },
 
     // Session encyption key
     sessionSecret: 'efrenmacasaetjr',
