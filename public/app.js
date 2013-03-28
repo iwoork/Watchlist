@@ -56,7 +56,7 @@ Ext.application({
     launch: function() {
 
         // Initialize Facebook with our app ID
-        WL.Facebook.initialize('1111111111111111');
+        WL.Facebook.initialize('308870105905592');
 
         if (window.localStorage && window.localStorage.WL) {
             var parsed = JSON.parse(window.localStorage.WL);
