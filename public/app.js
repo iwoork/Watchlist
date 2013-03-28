@@ -41,7 +41,7 @@ Ext.application({
         'Main',
         'Activity',
        'movie.List',
-        'business.List',
+     //   'business.List',
         'Dialog'
     ],
 
