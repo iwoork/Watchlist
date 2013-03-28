@@ -118,6 +118,21 @@ app.post('/', function(req, res) {
     }
 });
 
+app.get('/recommendations', fb.checkSession, fb.getFriendIds, fb.getUserDetails, function(req, res, next) {
+
+    var cache = {}, idx = [],
+        sort = movieIdx;
+
+    if (req.query.sort && req.query.sort.match(/Date/i)) {
+        sort = movieDateIdx;
+    } else if (req.query.sort && req.query.sort.match(/Rating/)) {
+        sort = movieRatingIdx;
+    }
+
+    util.addViewingData(req, res, next, movieCache, sort);
+});
+
+
 app.get('/movies', fb.checkSession, fb.getFriendIds, fb.getUserDetails, function(req, res, next) {
 
     var cache = {}, idx = [],
