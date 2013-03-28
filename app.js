@@ -113,7 +113,7 @@ app.post('/', function(req, res) {
             layout: 'layout.html.ejs',
             title: 'Chowhere',
             appUrl: '/app.html?deviceType=Phone',
-            showDemo: false
+            showDemo: true
         });
     }
 });
