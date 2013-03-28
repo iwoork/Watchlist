@@ -2,7 +2,7 @@ var _ = require('underscore'),
     express = require('express'),
     connect = require('connect'),
     rest = require('restler'),
-    MongoStore = require('connect-mongo')(express),
+    MongoStore = require('connect-mongo')(connect),
     fb = require('./lib/facebook'),
     movieIdx = [],
     movieRatingIdx = [],
@@ -58,7 +58,7 @@ app.configure(function() {
     app.use(express.session({
         secret: config.sessionSecret,
         //store: new MongoStore({ url: config.mongoDb })
-        store: new MongoStore({db: config.db })
+        store: new MongoStore(config.db)
     }));
 
     app.use(connect.bodyParser());
