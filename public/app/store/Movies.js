@@ -9,7 +9,7 @@ Ext.define('WL.store.Movies', {
 
         proxy: {
             type: 'jsonp',
-            url: '/movies',
+            url: '/restaurants',
 
             reader: {
                 type: 'json',
