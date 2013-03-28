@@ -56,7 +56,7 @@ Ext.define('WL.view.Main', {
 		        ]
 		    },
 		    {
-		    	xtype: 'businessList'
+		    	xtype: 'movieList'
 		    }
 		]
 	},
