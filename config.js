@@ -16,7 +16,7 @@ exports.config = {
     mongoDb: 'mongodb://mongochow:k3f12eNn@ds035237.mongolab.com:35237/chowheredb',
 
     // Session encyption key
-    sessionSecret: 'something12345secret',
+    sessionSecret: 'efrenmacasaetjr',
 
     //What is this?
     appUrl: 'app.chowhere.com',
