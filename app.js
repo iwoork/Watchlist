@@ -118,7 +118,7 @@ app.post('/', function(req, res) {
     }
 });
 
-app.get('/recommendations', fb.checkSession, fb.getFriendIds, fb.getUserDetails, function(req, res, next) {
+app.get('/businesses', fb.checkSession, fb.getFriendIds, fb.getUserDetails, function(req, res, next) {
 
     var cache = {}, idx = [],
         sort = movieIdx;

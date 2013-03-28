@@ -4,7 +4,7 @@ Ext.define('WL.view.Main', {
 
 	requires: [
 		'Ext.SegmentedButton',
-		'WL.view.movie.List'
+		'WL.view.business.List'
 	],
 
 	xtype: 'main',
