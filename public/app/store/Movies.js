@@ -5,16 +5,16 @@ Ext.define('WL.store.Movies', {
     config: {
         model: 'WL.model.Movie',
 
-        pageSize: 20,
-
         proxy: {
-            type: 'jsonp',
-            url: '/restaurants',
-
-            reader: {
-                type: 'json',
-                rootProperty: 'movies'
-            }
-        }
+			url: 'https://api.mongolab.com/api/1/databases/chowheredb/collections/restaurants',
+			type: 'rest',
+			encodeRequest: true,
+			method: 'GET',
+			limitParam: false,
+			enablePagingParams: false,
+			startParam: false,
+			reader: {
+			},
+		}
     }
 });
