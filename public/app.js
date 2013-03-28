@@ -30,7 +30,7 @@ Ext.application({
     ],
 
     stores: [
-//        'Movies',
+        'Movies',
         'Businesses',
         'Search',
         'Activity'
@@ -40,7 +40,7 @@ Ext.application({
         'LoggedOut',
         'Main',
         'Activity',
- //       'movie.List',
+       'movie.List',
         'business.List',
         'Dialog'
     ],
