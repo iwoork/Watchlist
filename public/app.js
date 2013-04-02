@@ -21,7 +21,7 @@ Ext.application({
 
     profiles: [
         'Phone',
-        //'Tablet'
+        'Tablet'
     ],
 
     models: [
