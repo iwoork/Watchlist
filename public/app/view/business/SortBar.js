@@ -29,7 +29,7 @@ Ext.define('WL.view.business.SortBar', {
 
 				items: [
 		    		{ text: 'Rating', pressed: true },
-		    		{ text: 'Friends' },
+//		    		{ text: 'Friends' },
 		    		{ text: 'Popular' }
 				]
 			}
