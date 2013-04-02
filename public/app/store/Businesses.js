@@ -9,16 +9,21 @@ Ext.define('WL.store.Businesses', {
         limitParam: false,
         enablePagingParams: false,
         startParam: false,
-        pageSize: 5,
-
-        proxy: {
-            type: 'jsonp',
-            url: '/businesses',
-
-            reader: {
-                type: 'json',
-                rootProperty: 'businesses'
-            }
+        type: 'rest',
+        autoLoad: true,
+        reader: {
         }
+
+        
+//
+//        proxy: {
+//            type: 'jsonp'
+//            url: '/businesses',
+//
+//            reader: {
+//                type: 'json',
+//                rootProperty: 'businesses'
+//            }
+//        }
     }
 });

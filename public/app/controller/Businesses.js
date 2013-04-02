@@ -62,7 +62,6 @@ Ext.define('WL.controller.Businesses', {
 
     init: function() {
     	var me = this;
-    	console.log(me);
         WL.app.on({
             localStorageData: 'onLocalStorageData',
             scope: me
@@ -115,8 +114,7 @@ Ext.define('WL.controller.Businesses', {
         		url: WL.config.mongoApi + 'restaurants'	,
         		extraParams: {
         			view: 'json',
-        			sk: 0,
-        	        l: 10,
+        	        l:5,
         	        s: Ext.encode({'rating':{'positive': -1}}),
         	        apiKey: WL.config.mongoApiKey,
         	        q: Ext.encode({
@@ -127,6 +125,7 @@ Ext.define('WL.controller.Businesses', {
         	        })
         		}
         };
+        console.log(Ext.getStore('Businesses').setProxy(proxyParams));
         Ext.getStore('Businesses').setProxy(proxyParams).load();
     },
     
@@ -146,13 +145,13 @@ Ext.define('WL.controller.Businesses', {
             profileId: profileId
         });
 
-        var learnMore = Ext.ComponentQuery.query('#promo-container')[0];
-
-        learnMore.element.on({
-            tap: this.onAbout,
-            scope: this,
-            delegate: 'button'
-        });
+//        var learnMore = Ext.ComponentQuery.query('#promo-container')[0];
+//
+//        learnMore.element.on({
+//            tap: this.onAbout,
+//            scope: this,
+//            delegate: 'button'
+//        });
     },
 
     /**
