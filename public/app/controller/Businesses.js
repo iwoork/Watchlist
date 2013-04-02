@@ -121,7 +121,7 @@ Ext.define('WL.controller.Businesses', {
         	        apiKey: WL.config.mongoApiKey,
         	        q: Ext.encode({
         	          'coordinates':{
-        	        	  '$near':[WL.config.lat, WL.config.lon], 
+        	        	  //'$near':[WL.config.lat, WL.config.lon], 
         	        	  '$maxDistance': 30
         	          }
         	        })
