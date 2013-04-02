@@ -29,13 +29,13 @@ Ext.define('WL.view.business.List', {
 
             { xtype: 'businessSortBar' , docked:'top'},
             { xtype: 'businessSearchBar' , docked:'top' , hidden:true},
-            {
-                xtype: 'container',
-                cls: 'promo',
-                itemId:'promo-container',
-                docked:'bottom',
-                html: '<span class="logo"></span>Brought to you by Sencha Touch 2.1 <button>Learn More</button>'
-            }
+//            {
+//                xtype: 'container',
+//                cls: 'promo',
+//                itemId:'promo-container',
+//                docked:'bottom',
+//                html: '<span class="logo"></span>Brought to you by Sencha Touch 2.1 <button>Learn More</button>'
+//            }
 		],
 
 		loadingText: null
