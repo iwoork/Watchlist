@@ -58,9 +58,7 @@ Ext.application({
     	// Set config
     	WL.config = {
     			mongoApi:  'https://api.mongolab.com/api/1/databases/chowheredb/collections/',
-    			mongoApiKey: '5083ab6ae4b0940f2c2e5db7',
-    			lat: null,
-    			lon: null
+    			mongoApiKey: '5083ab6ae4b0940f2c2e5db7'
     	};
     	
         // Initialize Facebook with our app ID
