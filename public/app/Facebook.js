@@ -170,7 +170,7 @@ Ext.define('WL.Facebook', {
                 } else if (err.type == 'OAuthException' && err.code == 200) {
 
                     errMsg = [
-                        "<p>We need permission to share your Watchlist activity with friends.</p>",
+                        "<p>We need permission to share your Chowhere activity with friends.</p>",
                         "<p>Go to Facebook and grant permission?</p>"
                     ].join('');
 

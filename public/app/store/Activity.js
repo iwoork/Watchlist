@@ -4,7 +4,7 @@ Ext.define('WL.store.Activity', {
 
     config: {
         fields: [
-            'profileId', 'movieId', 'title', 'name', 'date', 'action'
+            'profileId', 'businessId', 'title', 'name', 'date', 'action'
         ],
 
         pageSize: 20,

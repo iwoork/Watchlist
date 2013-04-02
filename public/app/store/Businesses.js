@@ -4,8 +4,12 @@ Ext.define('WL.store.Businesses', {
 
     config: {
         model: 'WL.model.Business',
-
-        pageSize: 20,
+        encodeRequest: true,
+        method: 'GET',
+        limitParam: false,
+        enablePagingParams: false,
+        startParam: false,
+        pageSize: 5,
 
         proxy: {
             type: 'jsonp',

@@ -9,7 +9,7 @@ Ext.define('WL.controller.Viewings', {
         control: {
 
             // Target the movieList xtype
-            movieList: {
+            businessList: {
                 seen:        'onSeenMovie',
                 unSeen:      'onUnSeenMovie',
                 wantToSee:   'onWantToSeeMovie',
@@ -21,7 +21,7 @@ Ext.define('WL.controller.Viewings', {
             },
 
             // Target the movieDetail xtype
-            movieDetail: {
+            businessDetail: {
                 seen:        'onSeenMovie',
                 unSeen:      'onUnSeenMovie',
                 wantToSee:   'onWantToSeeMovie',

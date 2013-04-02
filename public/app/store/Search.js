@@ -3,7 +3,7 @@ Ext.define('WL.store.Search', {
     extend  : 'Ext.data.Store',
 
     config: {
-        model: 'WL.model.Movie',
+        model: 'WL.model.Business',
 
         pageSize: 10,
 
@@ -13,7 +13,7 @@ Ext.define('WL.store.Search', {
 
             reader: {
                 type: 'json',
-                rootProperty: 'movies'
+                rootProperty: 'businesses'
             }
         }
     }

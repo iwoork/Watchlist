@@ -5,18 +5,18 @@ Ext.define('WL.profile.Phone', {
         name: 'Phone',
 
         controllers: [
-        	'Movies'
+        	'Businesses'
         ],
 
         views: [
-        	'WL.view.phone.movie.List',
-        	'WL.view.phone.movie.Detail'
+        	'WL.view.phone.business.List',
+        	'WL.view.phone.business.Detail'
         ]
     },
 
     launch: function() {
-        WL.view.phone.movie.List.addXtype('movieList');
-        WL.view.phone.movie.Detail.addXtype('movieDetail');
+        WL.view.phone.business.List.addXtype('businessList');
+        WL.view.phone.business.Detail.addXtype('businessDetail');
     },
 
     isActive: function() {

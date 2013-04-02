@@ -5,7 +5,6 @@ Ext.define('WL.controller.Businesses', {
     extend: 'Ext.app.Controller',
 
     config: {
-
         routes: {
             'businesses/:id': 'onBusinessUrl'
         },
@@ -43,7 +42,7 @@ Ext.define('WL.controller.Businesses', {
                 change: 'onSearch',
                 clearicontap: 'onSearchClear'
             },
-            'toolbar button[iconCls=businesses]': {
+            'toolbar button[iconCls=movies]': {
                 tap: 'onBusinessIconTap'
             },
             'toolbar button[iconCls=friends]': {
@@ -62,9 +61,11 @@ Ext.define('WL.controller.Businesses', {
     },
 
     init: function() {
+    	var me = this;
+    	console.log(me);
         WL.app.on({
             localStorageData: 'onLocalStorageData',
-            scope: this
+            scope: me
         });
 //        var learnMore = Ext.ComponentQuery.query('promo-container');
 //
@@ -107,8 +108,37 @@ Ext.define('WL.controller.Businesses', {
                 this.firstLoad = true;
             }
         }, this);
-
-        Ext.getStore('Businesses').load();
+        
+        // Use mongolab db for now
+        var proxyParams = {
+        		type: 'rest',
+        		url: WL.config.mongoApi + 'restaurants'	,
+        		extraParams: {
+        			view: 'json',
+        			sk: 0,
+        	        l: 10,
+        	        s: Ext.encode({'rating':{'positive': -1}}),
+        	        apiKey: WL.config.mongoApiKey,
+        	        q: Ext.encode({
+        	          'coordinates':{
+        	        	  '$near':[WL.config.lat, WL.config.lon], 
+        	        	  '$maxDistance': 30
+        	          }
+        	        })
+        		}
+        };
+        Ext.getStore('Businesses').setProxy(proxyParams).load();
+    },
+    
+    getLocation: function(callback) {
+        console.log('getLoc');
+        if (navigator && navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                callback(position);
+            }, function(error) {
+                // give a warning for error
+            });
+        }
     },
 
     onFirstLoad: function(profileId) {

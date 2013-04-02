@@ -21,16 +21,14 @@ Ext.application({
 
     profiles: [
         'Phone',
-        'Tablet'
+        //'Tablet'
     ],
 
     models: [
-        'Movie',
         'Business'
     ],
 
     stores: [
-        'Movies',
         'Businesses',
         'Search',
         'Activity'
@@ -40,15 +38,13 @@ Ext.application({
         'LoggedOut',
         'Main',
         'Activity',
-       'movie.List',
-     //   'business.List',
+        'business.List',
         'Dialog'
     ],
 
     controllers: [
         'Facebook',
         'Viewings',
-//        'Businesses',
         'YouTube'
     ],
 
@@ -59,6 +55,14 @@ Ext.application({
     // This function will be run once the application is ready to be launched.
     launch: function() {
 
+    	// Set config
+    	WL.config = {
+    			mongoApi:  'https://api.mongolab.com/api/1/databases/chowheredb/collections/',
+    			mongoApiKey: '5083ab6ae4b0940f2c2e5db7',
+    			lat: null,
+    			lon: null
+    	};
+    	
         // Initialize Facebook with our app ID
         WL.Facebook.initialize('308870105905592');
 
