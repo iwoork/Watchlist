@@ -5,19 +5,19 @@ Ext.define('WL.profile.Tablet', {
         name: 'Tablet',
 
         controllers: [
-        	'Movies'
+        	'Businesses'
         ],
 
         views: [
         	'Container',
-            'WL.view.tablet.movie.List',
-        	'WL.view.tablet.movie.Detail'
+            'WL.view.tablet.business.List',
+        	'WL.view.tablet.business.Detail'
         ]
     },
 
     launch: function() {
-        WL.view.tablet.movie.List.addXtype('movieList');
-        WL.view.tablet.movie.Detail.addXtype('movieDetail');
+        WL.view.tablet.business.List.addXtype('businessList');
+        WL.view.tablet.business.Detail.addXtype('businessDetail');
     },
 
     isActive: function() {
