@@ -16,23 +16,23 @@ Ext.define('WL.view.phone.business.Detail', {
                     {
                         xtype: 'button',
                         cls: 'backBtn',
-                        id: 'movieBackButton',
+                        id: 'businessBackButton',
                         align: 'left'
                     },
                     {
                         xtype: 'button',
                         cls: 'shareBtn',
                         iconCls: 'shareBtn',
-                        id: 'movieShareButton',
+                        id: 'businessShareButton',
                         align: 'right'
                     }
                 ]
             }
         ],
         tpl: Ext.create('Ext.XTemplate',
-            '<div class="movieDetail">',
+            '<div class="businessDetail">',
                 '<div class="moreArrow"></div>',
-                '<div class="movieDetailInner">',
+                '<div class="businessDetailInner">',
                     '<div class="left">',
                         '<div class="img"><img src="{largeImage}" /></div>',
                         '<tpl if="trailer"><button class="trailer">Play Trailer</button></tpl>',
@@ -115,11 +115,11 @@ Ext.define('WL.view.phone.business.Detail', {
                     }
 
                     if (fireEvent) {
-                        this.fireEvent(fireEvent, WL.currentMovie, el);
+                        this.fireEvent(fireEvent, WL.currentBusiness, el);
                     }
                 }
             },
-            delegate: '.movieDetail',
+            delegate: '.businessDetail',
             scope: this
         });
 
@@ -138,7 +138,7 @@ Ext.define('WL.view.phone.business.Detail', {
                 }
 
                 if (fireEvent) {
-                    this.fireEvent(fireEvent, WL.currentMovie, el);
+                    this.fireEvent(fireEvent, WL.currentBusiness, el);
                 }
 			},
             delegate: '.fbActions',
@@ -150,8 +150,8 @@ Ext.define('WL.view.phone.business.Detail', {
     },
 
     calculateHeights: function() {
-        var element = this.element.down('.movieDetail'),
-            innerElement = this.element.down('.movieDetailInner');
+        var element = this.element.down('.businessDetail'),
+            innerElement = this.element.down('.businessDetailInner');
 
         element.removeCls('ellipsis');
         element.setHeight('');
@@ -163,7 +163,7 @@ Ext.define('WL.view.phone.business.Detail', {
     toggle: function() {
 
     	var me = this,
-            element = this.element.down('.movieDetail'),
+            element = this.element.down('.businessDetail'),
     		isClosed = element.hasCls('ellipsis');
 
     	if (isClosed) {
