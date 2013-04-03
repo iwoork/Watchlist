@@ -109,24 +109,25 @@ Ext.define('WL.controller.Businesses', {
         }, this);
         
         // Use mongolab db for now
-        var proxyParams = {
-        		type: 'rest',
-        		url: WL.config.mongoApi + 'restaurants'	,
-        		extraParams: {
-        			view: 'json',
-        	        l:5,
-        	        s: Ext.encode({'rating':{'positive': -1}}),
-        	        apiKey: WL.config.mongoApiKey,
-        	        q: Ext.encode({
-        	          'coordinates':{
-        	        	  //'$near':[WL.config.lat, WL.config.lon], 
-        	        	  '$maxDistance': 30
-        	          }
-        	        })
-        		}
-        };
-        console.log(Ext.getStore('Businesses').setProxy(proxyParams));
-        Ext.getStore('Businesses').setProxy(proxyParams).load();
+//        var proxyParams = {
+//        		type: 'rest',
+//        		url: WL.config.mongoApi + 'restaurants'	,
+//        		extraParams: {
+//        			view: 'json',
+//        	        l:5,
+//        	        s: Ext.encode({'rating':{'positive': -1}}),
+//        	        apiKey: WL.config.mongoApiKey,
+//        	        q: Ext.encode({
+//        	          'coordinates':{
+//        	        	  //'$near':[WL.config.lat, WL.config.lon], 
+//        	        	  '$maxDistance': 30
+//        	          }
+//        	        })
+//        		}
+//        };
+//        console.log(Ext.getStore('Businesses').setProxy(proxyParams));
+//        Ext.getStore('Businesses').setProxy(proxyParams).load();
+        
     },
     
     getLocation: function(callback) {
