@@ -69,8 +69,8 @@ Ext.define('WL.controller.Businesses', {
 
         me.getLocation(function (location) {
             me.getBusinesses(location, function (store) {
-            	console.log(me.getBusinessList());
-            	console.log(store);
+            	//console.log(me.getBusinessList());
+            	//console.log(store);
                 // then bind data to list and show it
                 me.getBusinessList().setStore(store);
 
@@ -164,14 +164,6 @@ Ext.define('WL.controller.Businesses', {
         Ext.getCmp('fbProfilePic').setData({
             profileId: profileId
         });
-
-//        var learnMore = Ext.ComponentQuery.query('#promo-container')[0];
-//
-//        learnMore.element.on({
-//            tap: this.onAbout,
-//            scope: this,
-//            delegate: 'button'
-//        });
     },
 
     /**
