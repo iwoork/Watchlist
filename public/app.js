@@ -29,7 +29,7 @@ Ext.application({
     ],
 
     stores: [
-        'Businesses',
+        'BusinessStore',
         'Search',
         'Activity'
     ],

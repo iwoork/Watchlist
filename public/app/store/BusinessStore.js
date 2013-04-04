@@ -1,11 +1,10 @@
 
-Ext.define('WL.store.Businesses', {
+Ext.define('WL.store.BusinessStore', {
     extend  : 'Ext.data.Store',
-
+    storeId: 'BusinessStore',
+    autoLoad: false,
     config: {
-    	storeId: 'Businesses',
         model: 'WL.model.Business',
-        autoLoad: true,
         proxy: {
           url: 'https://api.mongolab.com/api/1/databases/chowheredb/collections/restaurants',
           type: 'rest',
@@ -18,7 +17,7 @@ Ext.define('WL.store.Businesses', {
           },
           extraParams: {
             view: 'json',
-            l: 10,
+            l: 5,
             s: Ext.encode({'rating':{'positive': -1}}),
             apiKey: '5083ab6ae4b0940f2c2e5db7',
             q: Ext.encode({

@@ -10,7 +10,7 @@ Ext.define('WL.controller.Businesses', {
         },
 
         refs: {
-            businessList: 'businessList',
+            businessList: '#businessList',
             main: 'main',
             loggedOut: 'loggedOut',
             toolbar: 'businessDetail toolbar',
@@ -66,6 +66,16 @@ Ext.define('WL.controller.Businesses', {
             localStorageData: 'onLocalStorageData',
             scope: me
         });
+
+        me.getLocation(function (location) {
+            me.getBusinesses(location, function (store) {
+            	console.log(me.getBusinessList());
+            	console.log(store);
+                // then bind data to list and show it
+                me.getBusinessList().setStore(store);
+
+            });
+        });
 //        var learnMore = Ext.ComponentQuery.query('promo-container');
 //
 //        learnMore.element.on({
@@ -76,10 +86,10 @@ Ext.define('WL.controller.Businesses', {
     },
 
     onLocalStorageData: function(data) {
-        var store = Ext.getStore('Businesses');
+        var store = Ext.getStore('BusinessStore');
 
         this.initContainer();
-        store.setData(data.businesses);
+        store.setData(data);
         store.fireEvent('load', store, store.data);
 
         this.onFirstLoad(data.profileId);
@@ -131,7 +141,6 @@ Ext.define('WL.controller.Businesses', {
     },
     
     getLocation: function(callback) {
-        console.log('getLoc');
         if (navigator && navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 callback(position);
@@ -139,6 +148,36 @@ Ext.define('WL.controller.Businesses', {
                 // give a warning for error
             });
         }
+    },
+    
+
+    getBusinesses: function(location, callback) {
+      var store = Ext.getStore('BusinessStore'),
+          proxyParams = {
+    	  	type: 'rest',
+    	  	url: WL.config.mongoApi + 'restaurants'	,
+            limitParam: false,
+            enablePagingParams: false,
+            startParam: false,
+    	  	extraParams: {
+    	  		view: 'json',
+    	  		l:5,
+    	  		s: Ext.encode({'rating':{'positive': -1}}),
+    	  		apiKey: WL.config.mongoApiKey,
+    	  		q: Ext.encode({
+    	  			'coordinates':{
+    	  				'$near':[location.coords.latitude, location.coords.longitude], 
+    	  				'$maxDistance': 30
+    	  			}
+    	  		})
+    	  	}
+      	};
+      store.setProxy(proxyParams).load(function() {
+          callback(store);
+      });
+
+      //console.log(Ext.getStore('Businesses').setProxy(proxyParams));
+      //Ext.getStore('Businesses').setProxy(proxyParams).load();
     },
 
     onFirstLoad: function(profileId) {

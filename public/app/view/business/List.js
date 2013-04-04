@@ -2,7 +2,6 @@
  * This view contains functionality shared between the movie list component for Phone and Tablet profiles.
  */
 Ext.define('WL.view.business.List', {
-
 	extend: 'Ext.List',
 	requires: [
 		'Ext.form.Panel',
@@ -14,7 +13,7 @@ Ext.define('WL.view.business.List', {
 	],
 
 	config: {
-
+		id: 'businessList',
 		store: 'Businesses',
 
         plugins: [

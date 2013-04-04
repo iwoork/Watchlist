@@ -1,9 +1,7 @@
 Ext.define('WL.view.phone.business.List', {
-
 	extend: 'WL.view.business.List',
-
 	config: {
-
+		id: 'businessList',
 		listeners: {
             order: 'before',
             select: function() {
