@@ -99,10 +99,10 @@ Ext.define('WL.controller.Businesses', {
 
         Ext.getBody().removeCls('splashBg');
 
-        Ext.getStore('Businesses').onBefore('datarefresh', function(store, data, operation, eOpts, e) {
-
+        Ext.getStore('BusinessStore').onBefore('datarefresh', function(store, data, operation, eOpts, e) {
+        	//console.log(operation.getResponse());
             var cache = JSON.stringify({
-                businesses: operation.getResponse().businesses,
+                businesses: operation.getResponse().responseText,
                 profileId: FB.getUserID()
             });
 
@@ -117,26 +117,6 @@ Ext.define('WL.controller.Businesses', {
                 this.firstLoad = true;
             }
         }, this);
-        
-        // Use mongolab db for now
-//        var proxyParams = {
-//        		type: 'rest',
-//        		url: WL.config.mongoApi + 'restaurants'	,
-//        		extraParams: {
-//        			view: 'json',
-//        	        l:5,
-//        	        s: Ext.encode({'rating':{'positive': -1}}),
-//        	        apiKey: WL.config.mongoApiKey,
-//        	        q: Ext.encode({
-//        	          'coordinates':{
-//        	        	  //'$near':[WL.config.lat, WL.config.lon], 
-//        	        	  '$maxDistance': 30
-//        	          }
-//        	        })
-//        		}
-//        };
-//        console.log(Ext.getStore('Businesses').setProxy(proxyParams));
-//        Ext.getStore('Businesses').setProxy(proxyParams).load();
         
     },
     
@@ -216,7 +196,7 @@ Ext.define('WL.controller.Businesses', {
     },
 
     onBusinessUrl: function(businessId) {
-        var businessStore = Ext.getStore('Businesses'),
+        var businessStore = Ext.getStore('BusinessStore'),
             business = businessStore.findRecord('rottenId', businessId);
 
         if (business) {
@@ -250,7 +230,7 @@ Ext.define('WL.controller.Businesses', {
     },
 
     onSearchClear: function() {
-        this.getBusinessList().setStore(Ext.getStore('Businesses'));
+        this.getBusinessList().setStore(Ext.getStore('BusinessStore'));
     },
 
     onBusinessIconTap: function() {
@@ -272,12 +252,12 @@ Ext.define('WL.controller.Businesses', {
 
     onSortToggle: function(segBtn, btn){
 
-        this.getBusinessList().setStore(Ext.getStore('Businesses'));
+        this.getBusinessList().setStore(Ext.getStore('BusinessStore'));
         this.getBusinessList().setMasked({ xtype: 'loadmask' });
         this.getBusinessList().deselectAll();
 
-        Ext.getStore('Businesses').getProxy().setExtraParams({sort: btn.getText()});
-        Ext.getStore('Businesses').loadPage(1);
+        Ext.getStore('BusinessStore').getProxy().setExtraParams({sort: btn.getText()});
+        Ext.getStore('BusinessStore').loadPage(1);
     },
 
     /**

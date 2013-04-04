@@ -14,7 +14,7 @@ Ext.define('WL.view.business.List', {
 
 	config: {
 		id: 'businessList',
-		store: 'Businesses',
+		store: 'BusinessList',
 
         plugins: [
             { xclass: 'Ext.plugin.ListPaging' } //To use this plugin its very important to include also CSS mixin : @include sencha-list-paging;
