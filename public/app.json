@@ -3,7 +3,7 @@
     "indexHtmlPath": "app.html",
     "js": [
         {
-            "path": "touch/sencha-touch-debug.js"
+            "path": "touch/sencha-touch-all.js"
         },
         {
             "path": "app.js",
@@ -29,7 +29,7 @@
 //            "resources/images/splashimg.png",
 //            "resources/images/bg-sprites.png",
 //            "resources/images/icon-sprites.png",
-            "http://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Sans+Narrow:400,700",
+//            "http://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Sans+Narrow:400,700",
 //            "http://www.youtube.com/player_api",
             "https://connect.facebook.net/en_US/all.js"
         ],
