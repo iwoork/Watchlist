@@ -841,7 +841,7 @@ input, textarea {
 
 /* line 203, ../../touch/resources/themes/stylesheets/sencha-touch/default/core/_core.scss */
 .x-layout-card-item {
-  background: #232323;
+  background: #F39C12;
 }
 
 /* line 1, ../../touch/resources/themes/stylesheets/sencha-touch/default/widgets/_map.scss */
@@ -8608,26 +8608,12 @@ input.searchField {
 }
 
 /* line 286, ../sass/movies.scss */
-.x-button.movies {
-  width: 40px;
-  height: 40px;
+.x-button {
+  width: 40px !important;
+  height: 40px !important;
   border-radius: 20px;
   margin-left: 8px;
   background: #C0392B;
-}
-
-/* line 306, ../sass/movies.scss */
-.x-button.friends {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  background: #C0392B;
-  margin-left: 10px;
-}
-
-/* line 319, ../sass/movies.scss */
-.x-button.friends.x-button-pressing .x-button-icon, .x-button.friends.x-button-pressed .x-button-icon {
-  background-position-y: -23px;
 }
 
 /* line 324, ../sass/movies.scss */
@@ -8838,17 +8824,6 @@ button.selected {
   color: #80a925;
 }
 
-/* line 521, ../sass/movies.scss */
-.x-button.backBtn {
-  background: url("../images/icon-sprites.png") no-repeat;
-  background-size: 219px 76px;
-  background-position-x: -124px;
-  background-position-y: 0;
-  margin-left: 5px;
-  border-radius: 3px;
-  padding: 0 23px;
-  height: 31px;
-}
 /* line 529, ../sass/movies.scss */
 .x-button.backBtn.x-button-pressing, .x-button.backBtn.x-button-pressed {
   background: url("../images/icon-sprites.png") no-repeat;

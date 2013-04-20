@@ -30,6 +30,7 @@ Ext.define('WL.view.Main', {
 		                allowDepress: false,
 		                items: [
 		                    {
+		                        xtype: 'button',
 		                        cls: 'movies',
 		                        iconCls: 'fui-location-24',
 		                        pressed: true

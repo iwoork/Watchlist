@@ -16,6 +16,7 @@ Ext.define('WL.view.phone.business.Detail', {
                     {
                         xtype: 'button',
                         cls: 'backBtn',
+                        iconCls: 'fui-menu-24',
                         id: 'businessBackButton',
                         align: 'left'
                     },
