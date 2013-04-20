@@ -8561,7 +8561,8 @@ input.searchField {
 
 /* line 232, ../sass/movies.scss */
 .x-button {
-  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 24px;
+  line-height: 18px;
   cursor: pointer;
   position: relative;
   display: -webkit-box;
@@ -8622,19 +8623,6 @@ input.searchField {
   margin-left: 8px;
   background: #C0392B;
 }
-/* line 294, ../sass/movies.scss */
-.x-button.movies .x-button-icon {
-  width: 20px;
-  height: 12px;
-  background: url("../images/icon-sprites.png") no-repeat;
-  background-size: 219px 76px;
-  background-position-x: -85px;
-  background-position-y: 0;
-}
-/* line 301, ../sass/movies.scss */
-.x-button.movies.x-button-pressing .x-button-icon, .x-button.movies.x-button-pressed .x-button-icon {
-  background-position-y: -23px;
-}
 
 /* line 306, ../sass/movies.scss */
 .x-button.friends {
@@ -8644,15 +8632,7 @@ input.searchField {
   background: #C0392B;
   margin-left: 10px;
 }
-/* line 313, ../sass/movies.scss */
-.x-button.friends .x-button-icon {
-  background: url("../images/icon-sprites.png") no-repeat;
-  background-size: 219px 76px;
-  background-position-x: -59px;
-  background-position-y: 0;
-  width: 26px;
-  height: 18px;
-}
+
 /* line 319, ../sass/movies.scss */
 .x-button.friends.x-button-pressing .x-button-icon, .x-button.friends.x-button-pressed .x-button-icon {
   background-position-y: -23px;

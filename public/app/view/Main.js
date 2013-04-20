@@ -37,7 +37,7 @@ Ext.define('WL.view.Main', {
 		                    {
 		                        xtype: 'button',
 		                        cls: 'friends',
-		                        iconCls: 'friends'
+		                        iconCls: 'fui-man-24'
 		                    }
 		                ]
 		            },
