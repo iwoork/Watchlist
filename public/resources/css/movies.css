@@ -432,8 +432,8 @@ input, textarea, select {
  */
 /* line 10, ../../touch/resources/themes/stylesheets/sencha-touch/default/core/_core.scss */
 html, body {
-  font-family: "Helvetica Neue", HelveticaNeue, "Helvetica-Neue", Helvetica, "BBAlpha Sans", sans-serif;
-  font-weight: normal;
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
   position: relative;
   -webkit-text-size-adjust: none;
 }
@@ -7110,7 +7110,7 @@ audio {
 /* line 84, ../../touch/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
 .x-list {
   position: relative;
-  background-color: #f7f7f7;
+  background-color: #2c3e50;
   overflow: hidden;
 }
 /* line 89, ../../touch/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
@@ -7148,7 +7148,7 @@ audio {
   position: absolute !important;
   left: 0;
   top: 0;
-  color: black;
+  color: white;
   width: 100%;
 }
 /* line 123, ../../touch/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
@@ -7734,6 +7734,7 @@ html, body {
 .x-layout-box.x-pack-start {
   -webkit-box-pack: start;
   box-pack: start;
+  background-color: #2c3e50;
 }
 /* line 333, ../../touch/resources/themes/stylesheets/sencha-touch/default/core/_layout.scss */
 .x-layout-box.x-pack-center {
@@ -8386,8 +8387,8 @@ html, body {
 /* line 56, ../sass/movies.scss */
 body {
   color: #fff;
-  background-color: #232323;
-  font-family: 'PT Sans', sans-serif;
+  background-color: #2c3e50;
+  font-family: 'Lato', sans-serif;
 }
 
 /* line 62, ../sass/movies.scss */
@@ -8466,12 +8467,11 @@ body.splashBg {
 
 /* line 127, ../sass/movies.scss */
 .x-list {
-  background: #232323;
+  background: #2c3e50;
 }
 
 /* line 150, ../sass/movies.scss */
 .x-list-item {
-  border-bottom: 2px solid #000;
   cursor: pointer;
 }
 
@@ -8600,13 +8600,7 @@ input.searchField {
 .x-toolbar {
   position: relative;
 }
-/* line 253, ../sass/movies.scss */
-.x-toolbar .x-button {
-  background: url("../images/bg-sprites.png") repeat-x;
-  background-size: 1px 558px;
-  background-position-x: 0;
-  background-position-y: 0;
-}
+
 /* line 256, ../sass/movies.scss */
 .x-toolbar .x-button .x-button-icon {
   display: block;
@@ -9201,44 +9195,33 @@ button.selected {
   width: 100%;
 }
 
-/* line 817, ../sass/movies.scss */
-.x-toolbar.sort .x-button:first-child {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 6px 4px;
-}
-/* line 822, ../sass/movies.scss */
-.x-toolbar.sort .x-button:last-child {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 6px 4px;
-}
 /* line 827, ../sass/movies.scss */
 .x-toolbar.sort .x-segmentedbutton {
   margin: 0 8px;
 }
 /* line 831, ../sass/movies.scss */
 .x-toolbar.sort .x-button {
-  font-size: 80%;
-  border-right: 1px solid #3d3d3d;
+  font-size: 130%;
   color: #222222;
   margin: 10px 0;
   text-align: center;
   line-height: 30px;
-  font-family: 'PT Sans Narrow', sans-serif;
-  background: url("../images/bg-sprites.png") repeat-x;
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
   background-size: 1px 558px;
   background-position-x: 0;
   background-position-y: -432px;
 }
 /* line 843, ../sass/movies.scss */
 .x-toolbar.sort .x-button.x-button-pressing, .x-toolbar.sort .x-button.x-button-pressed {
-  color: #c5c5c5;
+  color: #fff;
   background-position-y: -463px;
 }
 
 /* line 850, ../sass/movies.scss */
 .promo {
   background: #000;
-  font-family: 'PT Sans Narrow', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #acacac;
   padding: 10px;
   font-size: 80%;
