@@ -31,7 +31,7 @@ Ext.define('WL.view.Main', {
 		                items: [
 		                    {
 		                        cls: 'movies',
-		                        iconCls: 'fui-eye-24',
+		                        iconCls: 'fui-location-24',
 		                        pressed: true
 		                    },
 		                    {

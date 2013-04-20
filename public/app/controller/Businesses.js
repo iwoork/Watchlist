@@ -42,7 +42,7 @@ Ext.define('WL.controller.Businesses', {
                 change: 'onSearch',
                 clearicontap: 'onSearchClear'
             },
-            'toolbar button[iconCls=fui-eye-24]': {
+            'toolbar button[iconCls=fui-location-24]': {
                 tap: 'onBusinessIconTap'
             },
             'toolbar button[iconCls=fui-man-24]': {
