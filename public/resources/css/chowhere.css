@@ -9170,6 +9170,9 @@ button.selected {
 }
 
 
+.restaurant {
+  clear: both;
+}
 .categories li {
   float: left;
 }
