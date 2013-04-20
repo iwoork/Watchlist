@@ -8512,21 +8512,10 @@ body.splashBg {
   border-bottom: 1px solid #3f3f3f;
 }
 
-/* line 185, ../sass/movies.scss */
-.sort {
-  background: url("../images/bg-sprites.png") repeat-x;
-  background-size: 1px 558px;
-  background-position-x: 0;
-  background-position-y: -333px;
-  height: 48px;
-}
 
 /* line 190, ../sass/movies.scss */
 .search {
-  background: url("../images/bg-sprites.png") repeat-x;
-  background-size: 1px 558px;
-  background-position-x: 0;
-  background-position-y: -381px;
+  background: #34495E;
   height: 50px;
 }
 /* line 196, ../sass/movies.scss */
@@ -8563,17 +8552,11 @@ body.splashBg {
 /* line 220, ../sass/movies.scss */
 input.searchField {
   width: 100%;
-  background: url("../images/bg-sprites.png") repeat-x;
-  background-size: 1px 558px;
-  background-position-x: 0;
-  background-position-y: -64px;
+  background: #34495E;
   border: 0;
   height: 31px;
   padding-left: 5px;
-  border-top-left-radius: 6px 4px;
-  border-top-right-radius: 6px 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  color: #fff;
 }
 
 /* line 232, ../sass/movies.scss */
