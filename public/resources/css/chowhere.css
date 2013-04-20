@@ -9168,3 +9168,8 @@ button.selected {
   display: inline;
   margin-left: 8px;
 }
+
+
+.categories li {
+  float: left;
+}
