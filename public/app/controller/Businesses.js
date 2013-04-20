@@ -42,10 +42,10 @@ Ext.define('WL.controller.Businesses', {
                 change: 'onSearch',
                 clearicontap: 'onSearchClear'
             },
-            'toolbar button[iconCls=movies]': {
+            'toolbar button[iconCls=fui-eye-24]': {
                 tap: 'onBusinessIconTap'
             },
-            'toolbar button[iconCls=friends]': {
+            'toolbar button[iconCls=fui-man-24]': {
                 tap: 'onActivityIconTap'
             },
             '#fbProfilePic': {

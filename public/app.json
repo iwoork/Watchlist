@@ -12,11 +12,11 @@
     ],
     "css": [
         {
-            "path": "resources/css/movies.css",
+            "path": "resources/css/flat-ui.css",
             "update": "delta"
         },
         {
-            "path": "resources/css/flat-ui.css",
+            "path": "resources/css/chowhere.css",
             "update": "delta"
         }
     ],
