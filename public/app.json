@@ -36,7 +36,8 @@
     },
     "extras": [
         "resources/images",
-        "resources/css/style.css"
+        "resources/css/style.css",
+        "resources/css/flat-ui.css"
     ],
     "buildPaths": {
         "testing": "build/testing",
