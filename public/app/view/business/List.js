@@ -26,7 +26,7 @@ Ext.define('WL.view.business.List', {
 //		// Specifying the `items` config on an Ext.List will add them at the top of the list, before the list itself.
 		items: [
 
-            { xtype: 'businessSortBar' , docked:'top'},
+//            { xtype: 'businessSortBar' , docked:'top'},
             { xtype: 'businessSearchBar' , docked:'top' , hidden:true},
 //            {
 //                xtype: 'container',
