@@ -42,7 +42,6 @@ Ext.define('WL.view.phone.business.List', {
 		disableSelection: true,
 	    itemTpl: Ext.create('Ext.XTemplate',
 	      '<div class="restaurant">',
-	        '<div class="points"><strong>1 point</strong></div>',
 	        '<div class="name"><b>{name}</b></div>',
 	        '<tpl for="address">',
 	          '<div class="address">{en}</div>',

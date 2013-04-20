@@ -7734,7 +7734,7 @@ html, body {
 .x-layout-box.x-pack-start {
   -webkit-box-pack: start;
   box-pack: start;
-  background-color: #2c3e50;
+  background-color: #D35400;
 }
 /* line 333, ../../touch/resources/themes/stylesheets/sencha-touch/default/core/_layout.scss */
 .x-layout-box.x-pack-center {
@@ -8467,7 +8467,7 @@ body.splashBg {
 
 /* line 127, ../sass/movies.scss */
 .x-list {
-  background: #2c3e50;
+  background: #E67E22;
 }
 
 /* line 150, ../sass/movies.scss */
@@ -8626,10 +8626,6 @@ input.searchField {
 }
 /* line 278, ../sass/movies.scss */
 .x-toolbar.small .headerTitle {
-  background: url("../images/icon-sprites.png") no-repeat;
-  background-size: 219px 76px;
-  background-position-x: 0;
-  background-position-y: -45px;
   margin: auto;
   width: 105px;
   height: 30px;
@@ -8637,10 +8633,11 @@ input.searchField {
 
 /* line 286, ../sass/movies.scss */
 .x-button.movies {
-  width: 38px;
-  height: 30px;
-  border-radius: 3px 0 0 3px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
   margin-left: 8px;
+  background: #C0392B;
 }
 /* line 294, ../sass/movies.scss */
 .x-button.movies .x-button-icon {
@@ -8658,9 +8655,11 @@ input.searchField {
 
 /* line 306, ../sass/movies.scss */
 .x-button.friends {
-  width: 38px;
-  height: 30px;
-  border-radius: 0 3px 3px 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: #C0392B;
+  margin-left: 10px;
 }
 /* line 313, ../sass/movies.scss */
 .x-button.friends .x-button-icon {
@@ -8709,7 +8708,7 @@ input.searchField {
 .fbProfilePic img {
   width: 30px;
   height: 30px;
-  border-radius: 3px;
+  border-radius: 20px;
 }
 
 /* line 357, ../sass/movies.scss */
@@ -9202,15 +9201,12 @@ button.selected {
 /* line 831, ../sass/movies.scss */
 .x-toolbar.sort .x-button {
   font-size: 130%;
-  color: #222222;
+  color: #E67E22;
   margin: 10px 0;
   text-align: center;
   line-height: 30px;
   font-family: 'Lato', sans-serif;
-  font-weight: 100;
-  background-size: 1px 558px;
-  background-position-x: 0;
-  background-position-y: -432px;
+  font-weight: 400;
 }
 /* line 843, ../sass/movies.scss */
 .x-toolbar.sort .x-button.x-button-pressing, .x-toolbar.sort .x-button.x-button-pressed {
