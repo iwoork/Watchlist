@@ -7731,7 +7731,7 @@ html, body {
 .x-layout-box.x-pack-start {
   -webkit-box-pack: start;
   box-pack: start;
-  background-color: #D35400;
+  background-color: #E67E22;
 }
 /* line 333, ../../touch/resources/themes/stylesheets/sencha-touch/default/core/_layout.scss */
 .x-layout-box.x-pack-center {
@@ -8590,12 +8590,9 @@ input.searchField {
 /* line 266, ../sass/movies.scss */
 .x-toolbar.small {
   z-index: 3;
-  background: url("../images/bg-sprites.png") repeat-x;
-  background-size: 1px 558px;
-  background-position-x: 0;
-  background-position-y: -220px;
   height: 51px;
   margin-bottom: -4px;
+  background: #F39C12;
 }
 /* line 274, ../sass/movies.scss */
 .x-toolbar.small .x-toolbar-inner {
