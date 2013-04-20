@@ -7017,12 +7017,8 @@ audio {
 .x-msgbox,
 .x-form.x-floating {
   padding: 6px;
-  -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 0.2em 0.6em;
-  box-shadow: rgba(0, 0, 0, 0.8) 0 0.2em 0.6em;
   background-image: none;
-  background-color: #03111a;
+  background-color: #2980B9;
 }
 /* line 21, ../../touch/resources/themes/stylesheets/sencha-touch/default/widgets/_panel.scss */
 .x-panel.x-floating.x-floating-light,
@@ -7041,7 +7037,7 @@ audio {
   z-index: 1;
   background-color: #fff;
   -webkit-border-radius: 0.3em;
-  border-radius: 0.3em;
+  border-radius: 0;
 }
 
 /* line 35, ../../touch/resources/themes/stylesheets/sencha-touch/default/widgets/_panel.scss */
@@ -7071,7 +7067,7 @@ audio {
   height: 0.7em;
   -webkit-mask: 0 0 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAPCAYAAABut3YUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAPZJREFUeNpi/PX7LwOFwAyIG6HseiA+Ra5BjBQ6xg+IVwAxJ5T/HYgjgHgTOYYxUeCQUiBeh+QQBih7HVSOLiHDDMSTgTiTgLrpQJwLxH9p5RhOaLT4EakeFF3RQPyF2o6RhkaBGYkheRmIPYH4KbXSjC4QnyTDIch6danhGCcgPgwNGXKBNNQMb0ocEwXE24GYn4FyADJjI76Ej88x7UC8FIjZGKgHQDlxGtRsZmISMMjy+dBQoSXYBC0gv+NyDD80xzgx0AeAqg4fIH6NHk0qQHyMjg6B1WvHYDkNFjIgwS1ALMowMOAjEAeBHINe2Q0U+AUQYACQ10C2QNhRogAAAABJRU5ErkJggg==') no-repeat;
   -webkit-mask-size: 1.631em 0.7em;
-  background-color: #03111a;
+  background-color: #2980B9;
 }
 /* line 63, ../../touch/resources/themes/stylesheets/sencha-touch/default/widgets/_panel.scss */
 .x-anchor.x-anchor-bottom {
@@ -8367,7 +8363,7 @@ html, body {
 
 /* line 21, ../sass/movies.scss */
 .x-panel-inner {
-  background: #000 !important;
+  background: #3498DB !important;
 }
 
 /* line 40, ../sass/movies.scss */
@@ -8573,10 +8569,6 @@ input.searchField {
 }
 /* line 244, ../sass/movies.scss */
 .x-button.x-button-decline {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #c04800), color-stop(100%, #83210a));
-  background-image: -webkit-linear-gradient(#c04800, #83210a);
-  background-image: linear-gradient(#c04800, #83210a);
-  border-radius: 5px;
   padding: 5px;
 }
 
