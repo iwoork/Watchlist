@@ -7168,8 +7168,8 @@ audio {
 
 /* line 140, ../../touch/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
 .x-list-item-body {
-  min-height: 46px;
-  padding: 0.65em 0.8em;
+  background: #C0392B;
+  margin: 5px 10px;
 }
 
 /* line 145, ../../touch/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
