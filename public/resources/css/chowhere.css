@@ -7162,10 +7162,9 @@ audio {
 
 /* line 140, ../../touch/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
 .x-list-item-body {
-  background: #000;
+  background-color:rgba(0,0,0,0.3);
   margin: 10px;
   padding: 10px;
-  opacity: 0.1;
 }
 
 /* line 145, ../../touch/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
