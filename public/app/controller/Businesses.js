@@ -10,7 +10,8 @@ Ext.define('WL.controller.Businesses', {
         },
 
         refs: {
-            businessList: '#businessList',
+            //businessList: '#businessList',
+            carouselView: '#carouselView',
             main: 'main',
             loggedOut: 'loggedOut',
             toolbar: 'businessDetail toolbar',
@@ -72,17 +73,38 @@ Ext.define('WL.controller.Businesses', {
             	//console.log(me.getBusinessList());
             	//console.log(store);
                 // then bind data to list and show it
-                me.getBusinessList().setStore(store);
-
+                //me.getBusinessList().setStore(store);
+            	me.initMycarousel();
             });
         });
-//        var learnMore = Ext.ComponentQuery.query('promo-container');
-//
-//        learnMore.element.on({
-//            tap: this.onAbout,
-//            scope: this,
-//            delegate: 'button'
-//        });
+    },
+    
+    // then I can access the carousel view and fill it ...
+    initMycarousel: function() {
+      var carousel = this.getCarouselView();
+      var store = Ext.getStore('BusinessStore');
+console.log(carousel);
+//      store.clearFilter(true);
+//      store.filter('photoset', '72157631990018061' );
+//      store.load();       
+
+      store.load( function(businesses , operation ) {
+      var items = [];
+      //console.log(businesses);
+      Ext.each(businesses, function(business) {
+        if (!business.get('name')) {
+          return;
+         }
+
+        items.push({
+          html: business.data.name,
+        });             
+      });
+
+      // fill items into carousel
+      carousel.setItems(items);
+      carousel.setActiveItem(0);
+      });
     },
 
     onLocalStorageData: function(data) {

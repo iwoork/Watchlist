@@ -51,6 +51,7 @@ Ext.define('WL.view.phone.business.List', {
 	            '<li class="category">{.}</li>',
 	          '</tpl>',
 	        '</ul>',
+	        '<div style="clear:left;"></div>',
 	      '</div>'
 	    ),
 	    loadingText: "Please wait while we do the thinking for you...",

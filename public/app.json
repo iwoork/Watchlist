@@ -3,7 +3,7 @@
     "indexHtmlPath": "app.html",
     "js": [
         {
-            "path": "touch/sencha-touch-all.js"
+            "path": "touch/sencha-touch-debug.js"
         },
         {
             "path": "app.js",

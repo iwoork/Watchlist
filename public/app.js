@@ -49,7 +49,7 @@ Ext.application({
     ],
 
     viewport: {
-        autoMaximize: false // Causes the URL bar to be hidden once the application loads.
+        autoMaximize: true // Causes the URL bar to be hidden once the application loads.
     },
 
     // This function will be run once the application is ready to be launched.
