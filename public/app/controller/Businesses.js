@@ -11,52 +11,56 @@ Ext.define('WL.controller.Businesses', {
 
         refs: {
             businessList: '#businessList',
+            carouselList: '#carouselList',
             main: 'main',
-            loggedOut: 'loggedOut',
-            toolbar: 'businessDetail toolbar',
-            sortBar: 'businessSortBar',
-            searchBar: 'businessSearchBar',
-            searchButton: 'main toolbar button[iconCls=search]'
+//            loggedOut: 'loggedOut',
+//            toolbar: 'businessDetail toolbar',
+//            sortBar: 'businessSortBar',
+//            searchBar: 'businessSearchBar',
+//            searchButton: 'main toolbar button[iconCls=search]'
         },
 
         control: {
             businessList: {
                 tapBusiness:    'onBusinessTap'
             },
-            businessDetail: {
-                postToWall:  'onPostToWall',
-                sendToFriend:'onSendToFriend',
-                playTrailer: 'onPlayTrailer'
+            carouselList: {
+            	viewready : 'onCarouselReady'
             },
-            activity: {
-                itemtap: 'onViewingTap'
-            },
-            searchButton: {
-                tap: 'onSearchButton'
-            },
-            '#sortBy': {
-                toggle: 'onSortToggle'
-            },
-            '#searchField': {
-                action: 'onSearch',
-                change: 'onSearch',
-                clearicontap: 'onSearchClear'
-            },
-            'toolbar button[iconCls=fui-location-24]': {
-                tap: 'onBusinessIconTap'
-            },
-            'toolbar button[iconCls=fui-man-24]': {
-                tap: 'onActivityIconTap'
-            },
+//            businessDetail: {
+//                postToWall:  'onPostToWall',
+//                sendToFriend:'onSendToFriend',
+//                playTrailer: 'onPlayTrailer'
+//            },
+//            activity: {
+//                itemtap: 'onViewingTap'
+//            },
+//            searchButton: {
+//                tap: 'onSearchButton'
+//            },
+//            '#sortBy': {
+//                toggle: 'onSortToggle'
+//            },
+//            '#searchField': {
+//                action: 'onSearch',
+//                change: 'onSearch',
+//                clearicontap: 'onSearchClear'
+//            },
+//            'toolbar button[iconCls=fui-location-24]': {
+//                tap: 'onBusinessIconTap'
+//            },
+//            'toolbar button[iconCls=fui-man-24]': {
+//                tap: 'onActivityIconTap'
+//            },
             '#fbProfilePic': {
                 tap: 'onProfileTap'
             },
             '#logoutButton': {
                 tap: 'logout'
             },
-            '#businessShareButton': {
-                tap: 'onBusinessShare'
-            }
+//            '#businessShareButton': {
+//                tap: 'onBusinessShare'
+//            }
         }
     },
 
@@ -67,12 +71,28 @@ Ext.define('WL.controller.Businesses', {
             scope: me
         });
 
+//        me.getLocation(function (location) {
+//            me.getBusinesses(location, function (store) {
+//            	//console.log(me.getBusinessList());
+//            	//console.log(store);
+//                // then bind data to list and show it
+//                me.getBusinessList().setStore(store);
+//            });
+//        });
+    },
+    
+    onCarouselReady : function(carousel) {
+    	var me = this;
+    	console.log(carousel);
+        //do store load
+        //use add on the carousel argument in store load callback.
         me.getLocation(function (location) {
             me.getBusinesses(location, function (store) {
             	//console.log(me.getBusinessList());
             	//console.log(store);
                 // then bind data to list and show it
-                me.getBusinessList().setStore(store);
+                //me.getBusinessList().setStore(store);
+            	console.log(me)
             });
         });
     },

@@ -839,11 +839,6 @@ input, textarea {
   z-index: 5;
 }
 
-/* line 203, ../../touch/resources/themes/stylesheets/sencha-touch/default/core/_core.scss */
-.x-layout-card-item {
-  background: #E67E22;
-}
-
 /* line 1, ../../touch/resources/themes/stylesheets/sencha-touch/default/widgets/_map.scss */
 .x-map {
   background-color: #edeae2;
@@ -7106,7 +7101,6 @@ audio {
 /* line 84, ../../touch/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
 .x-list {
   position: relative;
-  background-color: #2c3e50;
   overflow: hidden;
 }
 /* line 89, ../../touch/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
@@ -7731,7 +7725,6 @@ html, body {
 .x-layout-box.x-pack-start {
   -webkit-box-pack: start;
   box-pack: start;
-  background-color: #E67E22;
 }
 /* line 333, ../../touch/resources/themes/stylesheets/sencha-touch/default/core/_layout.scss */
 .x-layout-box.x-pack-center {
@@ -8462,11 +8455,6 @@ body.splashBg {
   position: absolute;
 }
 
-/* line 127, ../sass/movies.scss */
-.x-list {
-  background: #E67E22;
-}
-
 /* line 150, ../sass/movies.scss */
 .x-list-item {
   cursor: pointer;
@@ -8592,7 +8580,6 @@ input.searchField {
   z-index: 3;
   height: 51px;
   margin-bottom: -4px;
-  background: #F39C12;
 }
 /* line 274, ../sass/movies.scss */
 .x-toolbar.small .x-toolbar-inner {

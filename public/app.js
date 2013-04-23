@@ -21,7 +21,7 @@ Ext.application({
 
     profiles: [
         'Phone',
-        'Tablet'
+//        'Tablet'
     ],
 
     models: [
@@ -30,8 +30,8 @@ Ext.application({
 
     stores: [
         'BusinessStore',
-        'Search',
-        'Activity'
+//        'Search',
+//        'Activity'
     ],
 
     views: [
@@ -39,13 +39,14 @@ Ext.application({
         'Main',
         'Activity',
         'business.List',
+        //'business.Carousel',
         'Dialog'
     ],
 
     controllers: [
         'Facebook',
-        'Viewings',
-        'YouTube'
+//        'Viewings',
+//        'YouTube'
     ],
 
     viewport: {
