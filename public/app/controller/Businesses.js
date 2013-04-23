@@ -5,9 +5,9 @@ Ext.define('WL.controller.Businesses', {
     extend: 'Ext.app.Controller',
 
     config: {
-        routes: {
-            'businesses/:id': 'onBusinessUrl'
-        },
+//        routes: {
+//            'businesses/:id': 'onBusinessUrl'
+//        },
 
         refs: {
             businessList: '#businessList',
@@ -165,88 +165,88 @@ Ext.define('WL.controller.Businesses', {
     /**
      * When a user clicks the search button, scroll to the top
      */
-    onSearchButton: function() {
-        var bar = this.getBusinessList().down('businessSearchBar');
-        if(bar.getHidden()){
-            bar.show({type: 'fade'});
-        }else{
-            bar.hide();
-        }
-    },
+//    onSearchButton: function() {
+//        var bar = this.getBusinessList().down('businessSearchBar');
+//        if(bar.getHidden()){
+//            bar.show({type: 'fade'});
+//        }else{
+//            bar.hide();
+//        }
+//    },
 
-    onBusinessTap: function(record) {
-        WL.app.updateUrl('businesses/' + record.get('rottenId'));
-        this.showBusiness(record);
-    },
+//    onBusinessTap: function(record) {
+//        WL.app.updateUrl('businesses/' + record.get('rottenId'));
+//        this.showBusiness(record);
+//    },
 
-    onViewingTap: function(list, idx, el, record) {
-        this.onBusinessUrl(record.get('businessId'));
-    },
+//    onViewingTap: function(list, idx, el, record) {
+//        this.onBusinessUrl(record.get('businessId'));
+//    },
 
-    onBusinessUrl: function(businessId) {
-        var businessStore = Ext.getStore('BusinessStore'),
-            business = businessStore.findRecord('rottenId', businessId);
+//    onBusinessUrl: function(businessId) {
+//        var businessStore = Ext.getStore('BusinessStore'),
+//            business = businessStore.findRecord('rottenId', businessId);
+//
+//        if (business) {
+//            this.showBusiness(business);
+//        } else {
+//            WL.model.Business.load(businessId, {
+//                success: function(business) {
+//                    this.showBusiness(business);
+//                },
+//                scope: this
+//            });
+//        }
+//    },
 
-        if (business) {
-            this.showBusiness(business);
-        } else {
-            WL.model.Business.load(businessId, {
-                success: function(business) {
-                    this.showBusiness(business);
-                },
-                scope: this
-            });
-        }
-    },
-
-    onSearch: function(searchField) {
-
-        var searchStore = Ext.getStore('Search'),
-            value = searchField.getValue();
-
-        if (value != '') {
-            this.getBusinessList().setMasked({ xtype: 'loadmask' });
-            searchStore.load({
-                params: { q: searchField.getValue() },
-                callback: function() {
-                    this.getBusinessList().setStore(searchStore);
-                    this.getBusinessList().setMasked(false);
-                },
-                scope: this
-            });
-        }
-    },
-
-    onSearchClear: function() {
-        this.getBusinessList().setStore(Ext.getStore('BusinessStore'));
-    },
-
-    onBusinessIconTap: function() {
-        this.getSearchButton().show();
-        this.getMain().setActiveItem(this.getBusinessList());
-    },
-
-    onActivityIconTap: function() {
-
-        this.getSearchButton().hide();
-
-        if (!this.activityCard) {
-            this.activityCard = Ext.widget('activity');
-            Ext.getStore('Activity').load();
-        }
-        this.getMain().setActiveItem(this.activityCard);
-        this.activityCard.deselectAll();
-    },
-
-    onSortToggle: function(segBtn, btn){
-
-        this.getBusinessList().setStore(Ext.getStore('BusinessStore'));
-        this.getBusinessList().setMasked({ xtype: 'loadmask' });
-        this.getBusinessList().deselectAll();
-
-        Ext.getStore('BusinessStore').getProxy().setExtraParams({sort: btn.getText()});
-        Ext.getStore('BusinessStore').loadPage(1);
-    },
+//    onSearch: function(searchField) {
+//
+//        var searchStore = Ext.getStore('Search'),
+//            value = searchField.getValue();
+//
+//        if (value != '') {
+//            this.getBusinessList().setMasked({ xtype: 'loadmask' });
+//            searchStore.load({
+//                params: { q: searchField.getValue() },
+//                callback: function() {
+//                    this.getBusinessList().setStore(searchStore);
+//                    this.getBusinessList().setMasked(false);
+//                },
+//                scope: this
+//            });
+//        }
+//    },
+//
+//    onSearchClear: function() {
+//        this.getBusinessList().setStore(Ext.getStore('BusinessStore'));
+//    },
+//
+//    onBusinessIconTap: function() {
+//        this.getSearchButton().show();
+//        this.getMain().setActiveItem(this.getBusinessList());
+//    },
+//
+//    onActivityIconTap: function() {
+//
+//        this.getSearchButton().hide();
+//
+//        if (!this.activityCard) {
+//            this.activityCard = Ext.widget('activity');
+//            Ext.getStore('Activity').load();
+//        }
+//        this.getMain().setActiveItem(this.activityCard);
+//        this.activityCard.deselectAll();
+//    },
+//
+//    onSortToggle: function(segBtn, btn){
+//
+//        this.getBusinessList().setStore(Ext.getStore('BusinessStore'));
+//        this.getBusinessList().setMasked({ xtype: 'loadmask' });
+//        this.getBusinessList().deselectAll();
+//
+//        Ext.getStore('BusinessStore').getProxy().setExtraParams({sort: btn.getText()});
+//        Ext.getStore('BusinessStore').loadPage(1);
+//    },
 
     /**
      * When the user profile picture is tapped, create a Logout button and pop it up next to the avatar.
