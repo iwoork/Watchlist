@@ -71,28 +71,12 @@ Ext.define('WL.controller.Businesses', {
             scope: me
         });
 
-//        me.getLocation(function (location) {
-//            me.getBusinesses(location, function (store) {
-//            	//console.log(me.getBusinessList());
-//            	//console.log(store);
-//                // then bind data to list and show it
-//                me.getBusinessList().setStore(store);
-//            });
-//        });
-    },
-    
-    onCarouselReady : function(carousel) {
-    	var me = this;
-    	console.log(carousel);
-        //do store load
-        //use add on the carousel argument in store load callback.
         me.getLocation(function (location) {
             me.getBusinesses(location, function (store) {
             	//console.log(me.getBusinessList());
             	//console.log(store);
                 // then bind data to list and show it
-                //me.getBusinessList().setStore(store);
-            	console.log(me)
+                me.getBusinessList().setStore(store);
             });
         });
     },
