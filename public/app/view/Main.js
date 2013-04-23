@@ -11,9 +11,8 @@ Ext.define('WL.view.Main', {
 	xtype: 'main',
 
 	config: {
-		fullscreen: true,
 		layout: {
-			type: 'vbox',
+			type: 'card',
 			animation: {
 				type: 'fade'
 			}
@@ -66,9 +65,9 @@ Ext.define('WL.view.Main', {
     initialize: function() {
         var me = this;
 
-//        me.on('painted', function() {
-//            me.fireEvent('viewready', me);
-//        }, null, { single : true });
+        me.on('painted', function() {
+            me.fireEvent('viewready', me);
+        }, null, { single : true });
 
         me.callParent();
 

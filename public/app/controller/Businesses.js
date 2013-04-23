@@ -13,7 +13,7 @@ Ext.define('WL.controller.Businesses', {
             businessList: '#businessList',
             carouselList: '#carouselList',
             main: 'main',
-//            loggedOut: 'loggedOut',
+            loggedOut: 'loggedOut',
 //            toolbar: 'businessDetail toolbar',
 //            sortBar: 'businessSortBar',
 //            searchBar: 'businessSearchBar',
