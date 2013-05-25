@@ -59,10 +59,10 @@ Ext.define('WL.controller.Businesses', {
 
     init: function() {
     	var me = this;
-//        WL.app.on({
-//            localStorageData: 'onLocalStorageData',
-//            scope: me
-//        });
+        WL.app.on({
+            localStorageData: 'onLocalStorageData',
+            scope: me
+        });
 //console.log(me.getRecommendations());
         me.getLocation(function (location) {
             me.getBusinesses(location, function (store) {
@@ -76,7 +76,6 @@ Ext.define('WL.controller.Businesses', {
 
     onLocalStorageData: function(data) {
         var store = Ext.getStore('BusinessStore');
-console.log('here');
         this.initContainer();
         store.setData(data);
         store.fireEvent('load', store, store.data);
@@ -84,19 +83,19 @@ console.log('here');
     },
 
     onFacebookLogin: function() {
-
+   console.log('yay');
         Ext.getStore('BusinessStore').onBefore('datarefresh', function(store, data, operation, eOpts, e) {
         	//console.log(operation.getResponse());
-//            var cache = JSON.stringify({
-//                businesses: operation.getResponse().responseText,
-//                profileId: FB.getUserID()
-//            });
+            var cache = JSON.stringify({
+                businesses: operation.getResponse().responseText,
+                profileId: FB.getUserID()
+            });
 
-            if (window.localStorage && window.localStorage.WL && window.localStorage.WL == cache) {
+            if (window.localStorage && window.localStorage.Recommendation && window.localStorage.Recommendation == cache) {
                 return false;
             }
 
-            window.localStorage.WL = cache;
+            window.localStorage.Recommendation = cache;
 
             if (!this.firstLoad) {
                 this.onFirstLoad(FB.getUserID());
@@ -137,7 +136,7 @@ console.log('here');
     },
 
     onFirstLoad: function(profileId) {
-        getFbPhoto.setData({
+        Ext.getCmp('fbProfilePic').setData({
             profileId: profileId
         });
     },
@@ -190,6 +189,7 @@ console.log('here');
     },
 
     onFacebookUnauthorized: function() {
+    	console.log('unauthorized');
         if (this.mainContainer) {
             Ext.create('WL.view.Dialog', {
                 msg: "Oops! Your Facebook session has expired.",

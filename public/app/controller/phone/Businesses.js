@@ -18,19 +18,19 @@ Ext.define('WL.controller.phone.Businesses', {
 
         this.callParent();
         
-//        WL.Facebook.on({
-//            connected: this.onFacebookLogin,
-//            logout: this.onFacebookLogout,
-//            unauthorized: this.onFacebookUnauthorized,
-//            scope: this
-//        });
+        WL.Facebook.on({
+            connected: this.onFacebookLogin,
+            logout: this.onFacebookLogout,
+            unauthorized: this.onFacebookUnauthorized,
+            scope: this
+        });
 
     },
     
-//    onFacebookLogin: function() {
-//        this.callParent(arguments);
-//        this.initContainer();
-//    },
+    onFacebookLogin: function() {
+        this.callParent(arguments);
+        this.initContainer();
+    },
     
     initContainer: function() {
         if (!this.mainContainer) {

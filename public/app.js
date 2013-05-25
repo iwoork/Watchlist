@@ -12,7 +12,9 @@ Ext.Loader.setPath({
  */
 
 Ext.require([
-    'Ext.field.Text'
+    'Ext.field.Text',
+    'Ext.Toolbar',
+    'Ext.data.proxy.Rest'
 ]);
 
 Ext.application({
@@ -38,7 +40,7 @@ Ext.application({
     ],
 
     controllers: [
- //       'Facebook'
+        'Facebook'
 //        'Viewings',
 //        'YouTube'
     ],
@@ -53,13 +55,13 @@ Ext.application({
     	Parse.initialize("76pNu8GdWwx6sKxihputocKsegdhU3Z9Nl7VTawu", "XTZKhqnE8zUb2pEqIOzfCBV369SC9B2QOccKGvSA");
     	
         // Initialize Facebook with our app ID
-        //WL.Facebook.initialize('308870105905592');
+        WL.Facebook.initialize('308870105905592');
 
-//        if (window.localStorage && window.localStorage.WL) {
-//        	console.log('test');
-//            var parsed = JSON.parse(window.localStorage.WL);
-//            this.fireEvent('localStorageData', parsed);
-//        }
+        if (window.localStorage && window.localStorage.Recommendation) {
+        	console.log('test');
+            var parsed = JSON.parse(window.localStorage.Recommendation);
+            this.fireEvent('localStorageData', parsed);
+        }
 
     }
 });

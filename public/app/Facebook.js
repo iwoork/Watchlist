@@ -94,19 +94,19 @@ Ext.define('WL.Facebook', {
         //});
 
         // Get the user login status from Facebook.
-//        FB.getLoginStatus(function(response) {
-//
-//            me.fireEvent('loginStatus');
-//
-//            clearTimeout(me.fbLoginTimeout);
-//            me.hasCheckedStatus = true;
-//
-//            if (response.status == 'connected') {
-//                me.fireEvent('connected');
-//            } else {
-//                me.fireEvent('unauthorized');
-//            }
-//        });
+        FB.getLoginStatus(function(response) {
+
+            me.fireEvent('loginStatus');
+
+            clearTimeout(me.fbLoginTimeout);
+            me.hasCheckedStatus = true;
+
+            if (response.status == 'connected') {
+                me.fireEvent('connected');
+            } else {
+                me.fireEvent('unauthorized');
+            }
+        });
         
 //	        Parse.FacebookUtils.logIn("email", {
 //			  success: function(user) {
@@ -127,13 +127,13 @@ Ext.define('WL.Facebook', {
         // We set a timeout in case there is no response from the Facebook `init` method. This often happens if the
         // Facebook application is incorrectly configured (for example if the browser URL does not match the one
         // configured on the Facebook app.)
-//        me.fbLoginTimeout = setTimeout(function() {
-//            me.fireEvent('loginStatus');
-//            me.fireEvent('exception', {
-//                type: 'timeout',
-//                msg: 'The request to Facebook timed out.'
-//            });
-//        }, me.fbTimeout);
+        me.fbLoginTimeout = setTimeout(function() {
+            me.fireEvent('loginStatus');
+            me.fireEvent('exception', {
+                type: 'timeout',
+                msg: 'The request to Facebook timed out.'
+            });
+        }, me.fbTimeout);
     },
 
     /**
