@@ -27,10 +27,10 @@ Ext.define('WL.controller.phone.Businesses', {
 
     },
     
-    onFacebookLogin: function() {
-        this.callParent(arguments);
-        this.initContainer();
-    },
+//    onFacebookLogin: function() {
+//        this.callParent(arguments);
+//        this.initContainer();
+//    },
     
     initContainer: function() {
         if (!this.mainContainer) {

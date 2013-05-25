@@ -55,11 +55,11 @@ Ext.application({
         // Initialize Facebook with our app ID
         //WL.Facebook.initialize('308870105905592');
 
-        if (window.localStorage && window.localStorage.WL) {
-        	console.log('test');
-            var parsed = JSON.parse(window.localStorage.WL);
-            this.fireEvent('localStorageData', parsed);
-        }
+//        if (window.localStorage && window.localStorage.WL) {
+//        	console.log('test');
+//            var parsed = JSON.parse(window.localStorage.WL);
+//            this.fireEvent('localStorageData', parsed);
+//        }
 
     }
 });

@@ -59,10 +59,10 @@ Ext.define('WL.controller.Businesses', {
 
     init: function() {
     	var me = this;
-        WL.app.on({
-            localStorageData: 'onLocalStorageData',
-            scope: me
-        });
+//        WL.app.on({
+//            localStorageData: 'onLocalStorageData',
+//            scope: me
+//        });
 //console.log(me.getRecommendations());
         me.getLocation(function (location) {
             me.getBusinesses(location, function (store) {
