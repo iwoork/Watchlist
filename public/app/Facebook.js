@@ -64,7 +64,7 @@ Ext.define('WL.Facebook', {
             status: true
         });
         
-    	Parse.FacebookUtils.logIn("user_likes,email", {
+    	Parse.FacebookUtils.logIn({
   		  success: function(user) {
   		    if (!user.existed()) {
   		      console.log("User signed up and logged in through Facebook!");

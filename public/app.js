@@ -44,7 +44,7 @@ Ext.application({
     ],
 
     controllers: [
-        'Facebook',
+        //'Facebook',
 //        'Viewings',
 //        'YouTube'
     ],
@@ -57,15 +57,9 @@ Ext.application({
     launch: function() {
 
     	Parse.initialize("76pNu8GdWwx6sKxihputocKsegdhU3Z9Nl7VTawu", "XTZKhqnE8zUb2pEqIOzfCBV369SC9B2QOccKGvSA");
-
-    	// Set config
-//    	WL.config = {
-//    			mongoApi:  'https://api.mongolab.com/api/1/databases/chowheredb/collections/',
-//    			mongoApiKey: '5083ab6ae4b0940f2c2e5db7'
-//    	};
     	
         // Initialize Facebook with our app ID
-        WL.Facebook.initialize('308870105905592');
+        // WL.Facebook.initialize('308870105905592');
     	
 
         if (window.localStorage && window.localStorage.WL) {
@@ -73,12 +67,6 @@ Ext.application({
             this.fireEvent('localStorageData', parsed);
         }
 
-        // This is a convenience script which auto-reloads the CSS every second.
-        // Combined with `compass watch`, this is useful during theme development as the page doesn't need to be reloaded.
-
-        // setInterval(function(){
-        //     Ext.DomQuery.select('link')[0].href = "resources/css/movies.css?" + Math.ceil(Math.random() * 100000000)
-        // }, 1000);
     }
 });
 
