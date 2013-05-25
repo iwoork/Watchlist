@@ -6,15 +6,11 @@ Ext.define('WL.controller.phone.Businesses', {
 
     config: {
         routes: {
-            'home': 'onBusinessBack'
         },
         control: {
-            '#businessBackButton': {
-                tap: 'doBusinessBack'
-            }
+           
         },
         refs: {
-            toolbar: 'businessDetail titlebar'
         }
     },
 

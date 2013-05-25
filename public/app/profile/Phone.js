@@ -9,13 +9,13 @@ Ext.define('WL.profile.Phone', {
         ],
 
         views: [
-        	'WL.view.phone.business.List',
+        	'WL.view.phone.business.Recommendation',
         	'WL.view.phone.business.Detail'
         ]
     },
 
     launch: function() {
-        WL.view.phone.business.List.addXtype('businessList');
+        WL.view.phone.business.Recommendation.addXtype('recommendation');
         WL.view.phone.business.Detail.addXtype('businessDetail');
     },
 

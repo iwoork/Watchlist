@@ -20,8 +20,7 @@ Ext.application({
     name: 'WL',  // This is the namespace for our application.
 
     profiles: [
-        'Phone',
-//        'Tablet'
+        'Phone'
     ],
 
     models: [
@@ -29,22 +28,18 @@ Ext.application({
     ],
 
     stores: [
-        'BusinessStore',
-//        'Search',
-//        'Activity'
+        'BusinessStore'
     ],
 
     views: [
         'LoggedOut',
         'Main',
         'Activity',
-        //'business.List',
-        'business.Carousel',
         'Dialog'
     ],
 
     controllers: [
-        //'Facebook',
+        'Facebook'
 //        'Viewings',
 //        'YouTube'
     ],

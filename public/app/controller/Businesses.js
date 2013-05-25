@@ -3,27 +3,22 @@
  */
 Ext.define('WL.controller.Businesses', {
     extend: 'Ext.app.Controller',
-
+    require: [
+      'WL.view.business.Recommendation'
+    ],
     config: {
 
         refs: {
-            businessList: '#businessList',
-            carousel: '#carousel',
+            recommendation: {
+                selector: 'recommendation',
+                xtype: 'recommendation',
+                autoCreate: true
+           },
             main: 'main',
-            loggedOut: 'loggedOut',
-//            toolbar: 'businessDetail toolbar',
-//            sortBar: 'businessSortBar',
-//            searchBar: 'businessSearchBar',
-//            searchButton: 'main toolbar button[iconCls=search]'
+            loggedOut: 'loggedOut'
         },
 
         control: {
-            businessList: {
-                tapBusiness:    'onBusinessTap'
-            },
-            carousel: {
-            	viewready : 'onCarouselReady'
-            },
 //            businessDetail: {
 //                postToWall:  'onPostToWall',
 //                sendToFriend:'onSendToFriend',
@@ -67,14 +62,14 @@ Ext.define('WL.controller.Businesses', {
             localStorageData: 'onLocalStorageData',
             scope: me
         });
-
+//console.log(me.getRecommendations());
         me.getLocation(function (location) {
             me.getBusinesses(location, function (store) {
-            	//console.log(me.getBusinessList());
             	//console.log(store);
                 // then bind data to list and show it
-                me.getBusinessList().setStore(store);
-            	//console.log(carousel);
+                me.getRecommendation().setStore(store);
+                //console.log(me.getRecommendation().setStore(store));
+            	console.log(store.getCount());
             });
         });
     },
@@ -85,34 +80,34 @@ Ext.define('WL.controller.Businesses', {
         this.initContainer();
         store.setData(data);
         store.fireEvent('load', store, store.data);
-
+//console.log(store.data);
         this.onFirstLoad(data.profileId);
     },
 
-    onFacebookLogin: function() {
-
-        Ext.getBody().removeCls('splashBg');
-
-        Ext.getStore('BusinessStore').onBefore('datarefresh', function(store, data, operation, eOpts, e) {
-        	//console.log(operation.getResponse());
-            var cache = JSON.stringify({
-                businesses: operation.getResponse().responseText,
-                profileId: FB.getUserID()
-            });
-
-            if (window.localStorage && window.localStorage.WL && window.localStorage.WL == cache) {
-                return false;
-            }
-
-            window.localStorage.WL = cache;
-
-            if (!this.firstLoad) {
-                this.onFirstLoad(FB.getUserID());
-                this.firstLoad = true;
-            }
-        }, this);
-        
-    },
+//    onFacebookLogin: function() {
+//
+//        Ext.getBody().removeCls('splashBg');
+//
+//        Ext.getStore('BusinessStore').onBefore('datarefresh', function(store, data, operation, eOpts, e) {
+//        	//console.log(operation.getResponse());
+//            var cache = JSON.stringify({
+//                businesses: operation.getResponse().responseText,
+//                profileId: FB.getUserID()
+//            });
+//
+//            if (window.localStorage && window.localStorage.WL && window.localStorage.WL == cache) {
+//                return false;
+//            }
+//
+//            window.localStorage.WL = cache;
+//
+//            if (!this.firstLoad) {
+//                this.onFirstLoad(FB.getUserID());
+//                this.firstLoad = true;
+//            }
+//        }, this);
+//        
+//    },
     
     getLocation: function(callback) {
         if (navigator && navigator.geolocation) {
@@ -149,92 +144,6 @@ Ext.define('WL.controller.Businesses', {
             profileId: profileId
         });
     },
-
-    /**
-     * When a user clicks the search button, scroll to the top
-     */
-//    onSearchButton: function() {
-//        var bar = this.getBusinessList().down('businessSearchBar');
-//        if(bar.getHidden()){
-//            bar.show({type: 'fade'});
-//        }else{
-//            bar.hide();
-//        }
-//    },
-
-//    onBusinessTap: function(record) {
-//        WL.app.updateUrl('businesses/' + record.get('rottenId'));
-//        this.showBusiness(record);
-//    },
-
-//    onViewingTap: function(list, idx, el, record) {
-//        this.onBusinessUrl(record.get('businessId'));
-//    },
-
-//    onBusinessUrl: function(businessId) {
-//        var businessStore = Ext.getStore('BusinessStore'),
-//            business = businessStore.findRecord('rottenId', businessId);
-//
-//        if (business) {
-//            this.showBusiness(business);
-//        } else {
-//            WL.model.Business.load(businessId, {
-//                success: function(business) {
-//                    this.showBusiness(business);
-//                },
-//                scope: this
-//            });
-//        }
-//    },
-
-//    onSearch: function(searchField) {
-//
-//        var searchStore = Ext.getStore('Search'),
-//            value = searchField.getValue();
-//
-//        if (value != '') {
-//            this.getBusinessList().setMasked({ xtype: 'loadmask' });
-//            searchStore.load({
-//                params: { q: searchField.getValue() },
-//                callback: function() {
-//                    this.getBusinessList().setStore(searchStore);
-//                    this.getBusinessList().setMasked(false);
-//                },
-//                scope: this
-//            });
-//        }
-//    },
-//
-//    onSearchClear: function() {
-//        this.getBusinessList().setStore(Ext.getStore('BusinessStore'));
-//    },
-//
-//    onBusinessIconTap: function() {
-//        this.getSearchButton().show();
-//        this.getMain().setActiveItem(this.getBusinessList());
-//    },
-//
-//    onActivityIconTap: function() {
-//
-//        this.getSearchButton().hide();
-//
-//        if (!this.activityCard) {
-//            this.activityCard = Ext.widget('activity');
-//            Ext.getStore('Activity').load();
-//        }
-//        this.getMain().setActiveItem(this.activityCard);
-//        this.activityCard.deselectAll();
-//    },
-//
-//    onSortToggle: function(segBtn, btn){
-//
-//        this.getBusinessList().setStore(Ext.getStore('BusinessStore'));
-//        this.getBusinessList().setMasked({ xtype: 'loadmask' });
-//        this.getBusinessList().deselectAll();
-//
-//        Ext.getStore('BusinessStore').getProxy().setExtraParams({sort: btn.getText()});
-//        Ext.getStore('BusinessStore').loadPage(1);
-//    },
 
     /**
      * When the user profile picture is tapped, create a Logout button and pop it up next to the avatar.
