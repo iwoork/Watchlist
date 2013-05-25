@@ -14,6 +14,8 @@ Ext.define('WL.store.BusinessStore', {
           url: 'https://api.parse.com/1/functions/recommendations',
           type: 'rest',
           useDefaultXhrHeader: false,
+          withCredentials: false,
+          useDefaultHeader : false,
           headers: {
             'X-Parse-Application-Id':  '76pNu8GdWwx6sKxihputocKsegdhU3Z9Nl7VTawu',
             'X-Parse-REST-API-KEY': 'auf8lwa2f4N9CTpAHXnlE3rGSDBgeotlbrv3O3Ia'
