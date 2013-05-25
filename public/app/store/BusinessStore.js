@@ -5,7 +5,7 @@ Ext.define('WL.store.BusinessStore', {
       'Ext.data.proxy.JsonP'
     ],
     config: {
-    	autoLoad: true,
+    	autoLoad: false,
     	clearOnPageLoad: false,
         model: 'WL.model.Business',
         pageSize: 5,
