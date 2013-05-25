@@ -5,13 +5,10 @@ Ext.define('WL.controller.Businesses', {
     extend: 'Ext.app.Controller',
 
     config: {
-//        routes: {
-//            'businesses/:id': 'onBusinessUrl'
-//        },
 
         refs: {
             businessList: '#businessList',
-            carouselList: '#carouselList',
+            carousel: '#carousel',
             main: 'main',
             loggedOut: 'loggedOut',
 //            toolbar: 'businessDetail toolbar',
@@ -24,7 +21,7 @@ Ext.define('WL.controller.Businesses', {
             businessList: {
                 tapBusiness:    'onBusinessTap'
             },
-            carouselList: {
+            carousel: {
             	viewready : 'onCarouselReady'
             },
 //            businessDetail: {
@@ -77,6 +74,7 @@ Ext.define('WL.controller.Businesses', {
             	//console.log(store);
                 // then bind data to list and show it
                 me.getBusinessList().setStore(store);
+            	//console.log(carousel);
             });
         });
     },
@@ -128,27 +126,8 @@ Ext.define('WL.controller.Businesses', {
     
 
     getBusinesses: function(location, callback) {
-      var store = Ext.getStore('BusinessStore'),
-          proxyParams = {
-    	  	type: 'rest',
-    	  	url: WL.config.mongoApi + 'restaurants'	,
-            limitParam: false,
-            enablePagingParams: false,
-            startParam: false,
-    	  	extraParams: {
-    	  		view: 'json',
-    	  		l:5,
-    	  		s: Ext.encode({'rating':{'positive': -1}}),
-    	  		apiKey: WL.config.mongoApiKey,
-    	  		q: Ext.encode({
-    	  			'coordinates':{
-    	  				'$near':[location.coords.latitude, location.coords.longitude], 
-    	  				'$maxDistance': 30
-    	  			}
-    	  		})
-    	  	}
-      	};
-      store.setProxy(proxyParams).load(function() {
+      var store = Ext.getStore('BusinessStore');
+      store.load(function() {
           callback(store);
       });
 
@@ -332,29 +311,6 @@ Ext.define('WL.controller.Businesses', {
                 }
             ]
         }).show();
-    },
-
-    onAbout: function() {
-        Ext.create('WL.view.Dialog', {
-            msg: [
-                "<p>The Watch List was built with Sencha Touch, a Javascript framework that lets you easily build ",
-                "beautiful mobile apps using Javascript, HTML5 and CSS3.</p>"
-            ].join(''),
-            buttons: [
-                {
-                    ui: 'green',
-                    text: 'Visit Sencha Touch Website',
-                    handler: function() {
-                        window.open("http://www.sencha.com/products/touch", "_blank");
-                    }
-                }
-            ]
-        }).show();
-    },
-
-    onPlayTrailer: function(business) {
-        var videoId = business.get('trailer').match(/v=(.*)$/);
-        WL.app.getController('YouTube').showTrailer(videoId[1]);
     },
 
     onFacebookUnauthorized: function() {

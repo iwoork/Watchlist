@@ -12,7 +12,7 @@ Ext.define('WL.view.Main', {
 
 	config: {
 		layout: {
-			type: 'card',
+			type: 'fit',
 			animation: {
 				type: 'fade'
 			}
@@ -58,16 +58,13 @@ Ext.define('WL.view.Main', {
 		    },
 		    {
 		    	xtype: 'businessList'
+		    	//xtype: 'carousel'
 		    }
 		]
 	},
 
     initialize: function() {
         var me = this;
-
-        me.on('painted', function() {
-            me.fireEvent('viewready', me);
-        }, null, { single : true });
 
         me.callParent();
 

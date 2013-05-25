@@ -57,11 +57,26 @@ Ext.define('WL.Facebook', {
             return;
         }
 
-        FB.init({
+        Parse.FacebookUtils.init({
             appId: this.appId,
             cookie: true,
-            frictionlessRequests: true
+            xfbml: true,
+            status: true
         });
+        
+//    	Parse.FacebookUtils.logIn("user_likes,email", {
+//  		  success: function(user) {
+//  		    if (!user.existed()) {
+//  		      alert("User signed up and logged in through Facebook!");
+//  		    } else {
+//  		      alert("User logged in through Facebook!");
+//  		    }
+//  		  },
+//  		  error: function(user, error) {
+//  			console.log(user);
+//  		    alert("User cancelled the Facebook login or did not fully authorize.");
+//  		  }
+//  		});
 
         var me = this;
         me.hasCheckedStatus = false;

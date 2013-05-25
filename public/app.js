@@ -38,8 +38,8 @@ Ext.application({
         'LoggedOut',
         'Main',
         'Activity',
-        'business.List',
-        //'business.Carousel',
+        //'business.List',
+        'business.Carousel',
         'Dialog'
     ],
 
@@ -56,14 +56,17 @@ Ext.application({
     // This function will be run once the application is ready to be launched.
     launch: function() {
 
+    	Parse.initialize("76pNu8GdWwx6sKxihputocKsegdhU3Z9Nl7VTawu", "XTZKhqnE8zUb2pEqIOzfCBV369SC9B2QOccKGvSA");
+
     	// Set config
-    	WL.config = {
-    			mongoApi:  'https://api.mongolab.com/api/1/databases/chowheredb/collections/',
-    			mongoApiKey: '5083ab6ae4b0940f2c2e5db7'
-    	};
+//    	WL.config = {
+//    			mongoApi:  'https://api.mongolab.com/api/1/databases/chowheredb/collections/',
+//    			mongoApiKey: '5083ab6ae4b0940f2c2e5db7'
+//    	};
     	
         // Initialize Facebook with our app ID
         WL.Facebook.initialize('308870105905592');
+    	
 
         if (window.localStorage && window.localStorage.WL) {
             var parsed = JSON.parse(window.localStorage.WL);
@@ -76,35 +79,6 @@ Ext.application({
         // setInterval(function(){
         //     Ext.DomQuery.select('link')[0].href = "resources/css/movies.css?" + Math.ceil(Math.random() * 100000000)
         // }, 1000);
-    },
-
-    /**
-     * Convenience function for updating the URL location hash
-     */
-    updateUrl: function(url) {
-        this.getHistory().add(Ext.create('Ext.app.Action', {
-            url: url
-        }));
-    },
-
-    onUpdated: function() {
-
-        Ext.create('WL.view.Dialog', {
-            msg: "Application update was a success. Reload now?",
-            buttons: [
-                {
-                    ui: 'green',
-                    text: 'Update Now',
-                    handler: function() {
-                        window.location.reload();
-                    }
-                },
-                {
-                    ui: 'red',
-                    text: "Later"
-                }
-            ]
-        }).show();
     }
 });
 

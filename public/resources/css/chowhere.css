@@ -8383,11 +8383,7 @@ body {
 
 /* line 62, ../sass/movies.scss */
 body.splashBg {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #610100), color-stop(100%, #2f0000));
-  background-image: -webkit-linear-gradient(#610100, #2f0000);
-  background-image: linear-gradient(#610100, #2f0000);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: #f53831
 }
 
 /* line 68, ../sass/movies.scss */
@@ -8407,8 +8403,6 @@ body.splashBg {
 
 /* line 81, ../sass/movies.scss */
 #splashLoader {
-  background: url("../images/splashimg.png") no-repeat center 25%;
-  background-size: contain;
   position: absolute;
   top: 0;
   right: 0;
@@ -8564,6 +8558,7 @@ input.searchField {
 /* line 251, ../sass/movies.scss */
 .x-toolbar {
   position: relative;
+  background: url('../images/header.png') no-repeat 10px 10px;
 }
 
 /* line 256, ../sass/movies.scss */

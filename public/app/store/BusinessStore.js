@@ -1,44 +1,29 @@
 
 Ext.define('WL.store.BusinessStore', {
     extend  : 'Ext.data.Store',
-    storeId: 'BusinessStore',
-    autoLoad: false,
+    requires: [
+      'Ext.data.proxy.JsonP'
+    ],
     config: {
+    	autoLoad: true,
+    	clearOnPageLoad: false,
         model: 'WL.model.Business',
+        pageSize: 5,
+        storeId: 'BusinessStore',    
         proxy: {
-          url: 'https://api.mongolab.com/api/1/databases/chowheredb/collections/restaurants',
+          url: 'https://api.parse.com/1/classes/Restaurant',
           type: 'rest',
-          encodeRequest: true,
-          method: 'GET',
-          limitParam: false,
-          enablePagingParams: false,
-          startParam: false,
-          reader: {
+          useDefaultXhrHeader: false,
+          headers: {
+            'X-Parse-Application-Id':  '76pNu8GdWwx6sKxihputocKsegdhU3Z9Nl7VTawu',
+            'X-Parse-REST-API-KEY': 'auf8lwa2f4N9CTpAHXnlE3rGSDBgeotlbrv3O3Ia'
           },
-          extraParams: {
-            view: 'json',
-            l: 5,
-            s: Ext.encode({'rating':{'positive': -1}}),
-            apiKey: '5083ab6ae4b0940f2c2e5db7',
-            q: Ext.encode({
-              'coordinates':{
-                '$maxDistance': 30
-              }
-            })
+          format: 'json',
+          reader: {
+            type: 'json',
+            rootProperty: 'results'
           }
         }
-      }
-
-        
-//
-//        proxy: {
-//            type: 'jsonp'
-//            url: '/businesses',
-//
-//            reader: {
-//                type: 'json',
-//                rootProperty: 'businesses'
-//            }
-//        }
+    }
 
 });

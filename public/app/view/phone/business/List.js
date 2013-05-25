@@ -2,56 +2,15 @@ Ext.define('WL.view.phone.business.List', {
 	extend: 'WL.view.business.List',
 	config: {
 		id: 'businessList',
-		listeners: {
-            order: 'before',
-            select: function() {
-                return false;
-            },
-
-            itemtap: function(dataview, index, target, record, evt) {
-
-                var el = Ext.get(evt.target),
-                	fireEvent;
-
-                if (el.dom.nodeName == 'B') el = el.parent();
-
-                WL.currentBusiness = record;
-
-                if (el.hasCls('seen')) {
-                	fireEvent = el.hasCls('selected') ? 'unSeen' : 'seen';
-                    el.toggleCls('selected');
-                } else if (el.hasCls('want')) {
-                	fireEvent = el.hasCls('selected') ? 'unWantToSee' : 'wantToSee';
-                    el.toggleCls('selected');
-                } else if (el.hasCls('thumb') && el.hasCls('up')) {
-	            	fireEvent = el.hasCls('selected') ? 'unLike' : 'like';
-                    el.toggleCls('selected');
-                } else if (el.hasCls('thumb') && el.hasCls('down')) {
-                	fireEvent = el.hasCls('selected') ? 'unDislike' : 'dislike';
-                    el.toggleCls('selected');
-                } else {
-                	fireEvent = 'tapBusiness';
-                }
-
-                if (fireEvent) {
-	            	this.fireEvent(fireEvent, record, el);
-                }
-            }
-        },
-
 		disableSelection: true,
 	    itemTpl: Ext.create('Ext.XTemplate',
 	      '<div class="restaurant">',
+            '<div class="photo"><img style="width:280px;height:160px;" src="{[values.photos.groups[0].items[0].prefix]}280x160{[values.photos.groups[0].items[0].suffix]}" /></div>',
 	        '<div class="name"><b>{name}</b></div>',
+	        '<div class="phone">{phone}</div>',
 	        '<tpl for="address">',
-	          '<div class="address">{en}</div>',
+	          '<div class="address"><small>{en}</small></div>',
 	        '</tpl>',
-	        '<ul class="categories">',
-	          '<tpl for="categories">',
-	            '<li class="category">{.}</li>',
-	          '</tpl>',
-	        '</ul>',
-	        '<div style="clear:left;"></div>',
 	      '</div>'
 	    ),
 	    loadingText: "Please wait while we do the thinking for you...",
