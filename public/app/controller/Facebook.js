@@ -17,7 +17,7 @@ Ext.define('WL.controller.Facebook', {
                 Ext.create('WL.view.Dialog', { msg: 'The connection to Facebook has timed out' }).show();
             },
             loginStatus: function() {
-                Ext.get('loading').destroy();
+                //Ext.get('loading').destroy();
             }
         });
     },

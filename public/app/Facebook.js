@@ -62,34 +62,36 @@ Ext.define('WL.Facebook', {
             appId: this.appId,
             cookie: true,
             xfbml: true,
-            status: true
+            status: false,
+            channelURL : 'https://local.chowhere.com:3000/channel.html'
         });
         
-    	Parse.FacebookUtils.logIn({
-  		  success: function(user) {
-  		    if (!user.existed()) {
-  		      console.log("User signed up and logged in through Facebook!");
-  		    } else {
-  		      console.log("User logged in through Facebook!");
-  		    }
-  		    me.fireEvent('connected');
-  		  },
-  		  error: function(user, error) {
-  			console.log(user);
-  		    console.log("User cancelled the Facebook login or did not fully authorize.");
-  		    me.fireEvent('unauthorized');
-  		  }
-  		});
-
+//    	Parse.FacebookUtils.logIn("email", {
+//  		  success: function(user) {
+//  		    if (!user.existed()) {
+//  		      console.log("User signed up and logged in through Facebook!");
+//  		    } else {
+//  		      console.log("User logged in through Facebook!");
+//  		    }
+//  		    me.fireEvent('connected');
+//  		  },
+//  		  error: function(user, error) {
+//  			console.log(user);
+//  		    console.log("User cancelled the Facebook login or did not fully authorize.");
+//  		    me.fireEvent('unauthorized');
+//  		  }
+//  		});
+    	//console.log(me);
         me.hasCheckedStatus = false;
 
-        FB.Event.subscribe('auth.logout', function() {
+        //FB.Event.subscribe('auth.logout', function() {
             // This event can be fired as soon as the page loads which may cause undesired behaviour, so we wait
             // until after we've specifically checked the login status.
             if (me.hasCheckedStatus) {
                 me.fireEvent('logout');
             }
-        });
+            
+        //});
 
         // Get the user login status from Facebook.
 //        FB.getLoginStatus(function(response) {
@@ -105,6 +107,22 @@ Ext.define('WL.Facebook', {
 //                me.fireEvent('unauthorized');
 //            }
 //        });
+        
+	        Parse.FacebookUtils.logIn("email", {
+			  success: function(user) {
+			    if (!user.existed()) {
+			      console.log("User signed up and logged in through Facebook!");
+			    } else {
+			      console.log("User logged in through Facebook!");
+			    }
+			    me.fireEvent('connected');
+			  },
+			  error: function(user, error) {
+				console.log(user);
+			    console.log("User cancelled the Facebook login or did not fully authorize.");
+			    me.fireEvent('unauthorized');
+			  }
+			});
 
         // We set a timeout in case there is no response from the Facebook `init` method. This often happens if the
         // Facebook application is incorrectly configured (for example if the browser URL does not match the one

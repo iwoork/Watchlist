@@ -2,7 +2,7 @@ exports.config = {
     // Base URL of the App (must be a publically accessible URL)
 
     //What is this?
-    redirect_uri:  'http://app.chowhere.com:3000',
+    redirect_uri:  'https://app.chowhere.com:3000',
 
     // Facebook App ID/API Key
     client_id:     '308870105905592',

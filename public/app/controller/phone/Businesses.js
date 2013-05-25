@@ -17,7 +17,19 @@ Ext.define('WL.controller.phone.Businesses', {
     init: function() {
 
         this.callParent();
+        
+        WL.Facebook.on({
+            connected: this.onFacebookLogin,
+            logout: this.onFacebookLogout,
+            unauthorized: this.onFacebookUnauthorized,
+            scope: this
+        });
 
+    },
+    
+    onFacebookLogin: function() {
+        this.callParent(arguments);
+        this.initContainer();
     },
     
     initContainer: function() {
@@ -25,5 +37,8 @@ Ext.define('WL.controller.phone.Businesses', {
             this.mainContainer = Ext.Viewport.add({ xtype: 'main' });
         }
     }
+
+    
+
 
 });

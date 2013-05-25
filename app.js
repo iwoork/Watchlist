@@ -4,6 +4,7 @@ var _ = require('underscore'),
     rest = require('restler'),
     MongoStore = require('connect-mongo'),
     fb = require('./lib/facebook'),
+    fs = require('fs'),
     movieIdx = [],
     movieRatingIdx = [],
     movieDateIdx = [],
@@ -31,8 +32,11 @@ require('./lib/database');
 //console.log(config);
 
 // App server setup
+var privateKey = fs.readFileSync('cert/privatekey.pem').toString();
+var certificate = fs.readFileSync('cert/certificate.pem').toString();
 
-var app = module.exports = express.createServer();
+//var app = module.exports = express.createServer();
+var app = module.exports = express.createServer({key: privateKey, cert: certificate});
 
 app.configure('development', function() {
     //app.use(express.logger());

@@ -15,7 +15,8 @@ Ext.define('WL.controller.Businesses', {
                 autoCreate: true
            },
             main: 'main',
-            loggedOut: 'loggedOut'
+            loggedOut: 'loggedOut',
+            fbPhoto: '#fbProfilePic'
         },
 
         control: {
@@ -58,10 +59,10 @@ Ext.define('WL.controller.Businesses', {
 
     init: function() {
     	var me = this;
-        WL.app.on({
-            localStorageData: 'onLocalStorageData',
-            scope: me
-        });
+//        WL.app.on({
+//            localStorageData: 'onLocalStorageData',
+//            scope: me
+//        });
 //console.log(me.getRecommendations());
         me.getLocation(function (location) {
             me.getBusinesses(location, function (store) {
@@ -69,45 +70,41 @@ Ext.define('WL.controller.Businesses', {
                 // then bind data to list and show it
                 me.getRecommendation().setStore(store);
                 //console.log(me.getRecommendation().setStore(store));
-            	console.log(store.getCount());
             });
         });
     },
 
-    onLocalStorageData: function(data) {
-        var store = Ext.getStore('BusinessStore');
+//    onLocalStorageData: function(data) {
+//        var store = Ext.getStore('BusinessStore');
+//console.log('here');
+//        this.initContainer();
+//        store.setData(data);
+//        store.fireEvent('load', store, store.data);
+//        this.onFirstLoad(data.profileId);
+//    },
 
-        this.initContainer();
-        store.setData(data);
-        store.fireEvent('load', store, store.data);
-//console.log(store.data);
-        this.onFirstLoad(data.profileId);
-    },
+    onFacebookLogin: function() {
 
-//    onFacebookLogin: function() {
-//
-//        Ext.getBody().removeCls('splashBg');
-//
-//        Ext.getStore('BusinessStore').onBefore('datarefresh', function(store, data, operation, eOpts, e) {
-//        	//console.log(operation.getResponse());
+        Ext.getStore('BusinessStore').onBefore('datarefresh', function(store, data, operation, eOpts, e) {
+        	//console.log(operation.getResponse());
 //            var cache = JSON.stringify({
 //                businesses: operation.getResponse().responseText,
 //                profileId: FB.getUserID()
 //            });
-//
-//            if (window.localStorage && window.localStorage.WL && window.localStorage.WL == cache) {
-//                return false;
-//            }
-//
-//            window.localStorage.WL = cache;
-//
-//            if (!this.firstLoad) {
-//                this.onFirstLoad(FB.getUserID());
-//                this.firstLoad = true;
-//            }
-//        }, this);
-//        
-//    },
+console.log(cache);
+            if (window.localStorage && window.localStorage.WL && window.localStorage.WL == cache) {
+                return false;
+            }
+
+            window.localStorage.WL = cache;
+
+            if (!this.firstLoad) {
+                this.onFirstLoad(FB.getUserID());
+                this.firstLoad = true;
+            }
+        }, this);
+        
+    },
     
     getLocation: function(callback) {
         if (navigator && navigator.geolocation) {
@@ -140,7 +137,7 @@ Ext.define('WL.controller.Businesses', {
     },
 
     onFirstLoad: function(profileId) {
-        Ext.getCmp('fbProfilePic').setData({
+        getFbPhoto.setData({
             profileId: profileId
         });
     },
@@ -180,7 +177,8 @@ Ext.define('WL.controller.Businesses', {
      */
     logout: function() {
         this.logoutCmp.hide();
-        FB.logout();
+        //FB.logout();
+        Parse.User.logOut();
     },
 
     onFacebookLogout: function() {
@@ -188,47 +186,7 @@ Ext.define('WL.controller.Businesses', {
         Ext.getBody().addCls('splashBg');
         Ext.Viewport.setActiveItem({ xtype: 'loggedOut' });
 
-        if (this.businessDetailCmp) {
-            this.businessDetailCmp.destroy();
-        }
-
         this.getMain().destroy();
-    },
-
-    onBusinessShare: function() {
-
-        var me = this;
-
-        Ext.create('WL.view.Dialog', {
-            msg: "Share this business to your Wall?",
-            items: [
-                {
-                    xtype: 'textfield',
-                    labelWidth: 0,
-                    width: '100%',
-                    cls: 'wallMessage',
-                    id: 'wallMessage',
-                    placeHolder: 'Message...'
-                }
-            ],
-            buttons: [
-                {
-                    ui: 'green',
-                    text: 'Post to wall.',
-                    handler: function() {
-                        me.postToWall();
-                        this.getParent().hide();
-                    }
-                },
-                {
-                    ui: 'red',
-                    text: "No thanks.",
-                    handler: function() {
-                        this.getParent().hide()
-                    }
-                }
-            ]
-        }).show();
     },
 
     onFacebookUnauthorized: function() {
