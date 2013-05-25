@@ -51,7 +51,8 @@ Ext.define('WL.Facebook', {
      * This fucntion is run when the Facebook JS SDK has been successfully laoded onto the page.
      */
     onFacebookInit: function() {
-
+    	var me = this;
+    	
         if (!this.appId) {
             Ext.Logger.error('No Facebook Application ID set.');
             return;
@@ -71,14 +72,15 @@ Ext.define('WL.Facebook', {
   		    } else {
   		      console.log("User logged in through Facebook!");
   		    }
+  		    me.fireEvent('connected');
   		  },
   		  error: function(user, error) {
   			console.log(user);
   		    console.log("User cancelled the Facebook login or did not fully authorize.");
+  		    me.fireEvent('unauthorized');
   		  }
   		});
 
-        var me = this;
         me.hasCheckedStatus = false;
 
         FB.Event.subscribe('auth.logout', function() {
@@ -90,19 +92,19 @@ Ext.define('WL.Facebook', {
         });
 
         // Get the user login status from Facebook.
-        FB.getLoginStatus(function(response) {
-
-            me.fireEvent('loginStatus');
-
-            clearTimeout(me.fbLoginTimeout);
-            me.hasCheckedStatus = true;
-
-            if (response.status == 'connected') {
-                me.fireEvent('connected');
-            } else {
-                me.fireEvent('unauthorized');
-            }
-        });
+//        FB.getLoginStatus(function(response) {
+//
+//            me.fireEvent('loginStatus');
+//
+//            clearTimeout(me.fbLoginTimeout);
+//            me.hasCheckedStatus = true;
+//
+//            if (response.status == 'connected') {
+//                me.fireEvent('connected');
+//            } else {
+//                me.fireEvent('unauthorized');
+//            }
+//        });
 
         // We set a timeout in case there is no response from the Facebook `init` method. This often happens if the
         // Facebook application is incorrectly configured (for example if the browser URL does not match the one
