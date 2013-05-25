@@ -11,7 +11,7 @@ Ext.define('WL.store.BusinessStore', {
         pageSize: 5,
         storeId: 'BusinessStore',    
         proxy: {
-          url: 'https://api.parse.com/1/classes/Restaurant',
+          url: 'https://api.parse.com/1/functions/recommendations',
           type: 'rest',
           useDefaultXhrHeader: false,
           headers: {
