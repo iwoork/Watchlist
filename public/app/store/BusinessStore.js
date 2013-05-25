@@ -16,6 +16,11 @@ Ext.define('WL.store.BusinessStore', {
           useDefaultXhrHeader: false,
           withCredentials: false,
           useDefaultHeader : false,
+          limitParam: false,
+          enablePagingParams: false,
+          startParam: false,
+          pageParam: false,
+          noCache: false,
           headers: {
             'X-Parse-Application-Id':  '76pNu8GdWwx6sKxihputocKsegdhU3Z9Nl7VTawu',
             'X-Parse-REST-API-KEY': 'auf8lwa2f4N9CTpAHXnlE3rGSDBgeotlbrv3O3Ia'
@@ -23,7 +28,11 @@ Ext.define('WL.store.BusinessStore', {
           format: 'json',
           reader: {
             type: 'json',
-            rootProperty: 'results'
+            rootProperty: 'result'
+          },
+          writer: {
+        	encodeRequest: true,
+        	type: 'json'
           }
         }
     }

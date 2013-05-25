@@ -129,8 +129,11 @@ Ext.define('WL.controller.Businesses', {
       var store = Ext.getStore('BusinessStore');
       
       store.getProxy().setExtraParams({
-        'latitude': location.coords.latitude,
-        'longitude':location.coords.longitude
+        'location': {
+          'latitude': location.coords.latitude,
+          'longitude':location.coords.longitude
+        },
+        'limit': false
       });
       store.load(function() {
           callback(store);
