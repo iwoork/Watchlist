@@ -16,7 +16,7 @@ Ext.define('WL.controller.Businesses', {
            },
             main: 'main',
             loggedOut: 'loggedOut',
-            fbPhoto: '#fbProfilePic'
+            fbProfilePic: '#fbProfilePic'
         },
 
         control: {
