@@ -1886,11 +1886,11 @@ body.splashBg {
 }
 
 .x-list {
-	background: #f53831
+	background: #f53831;
 }
 
 .x-list-item {
-	border-bottom: 2px solid #000;
+	background: rgba(0,0,0,0.7)
 	cursor: pointer
 }
 
@@ -2040,13 +2040,10 @@ input.searchField {
 }
 
 .x-toolbar.small .headerTitle {
-	background: url("../images/icon-sprites.png") no-repeat;
-	background-size: 219px 76px;
-	background-position-x: 0;
-	background-position-y: -45px;
+	background: url("../images/header.png") no-repeat;
 	margin: auto;
-	width: 105px;
-	height: 30px
+	width: 180px;
+	height: 30px;
 }
 
 .x-button.movies {
