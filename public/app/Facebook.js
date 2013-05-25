@@ -108,32 +108,32 @@ Ext.define('WL.Facebook', {
 //            }
 //        });
         
-	        Parse.FacebookUtils.logIn("email", {
-			  success: function(user) {
-			    if (!user.existed()) {
-			      console.log("User signed up and logged in through Facebook!");
-			    } else {
-			      console.log("User logged in through Facebook!");
-			    }
-			    me.fireEvent('connected');
-			  },
-			  error: function(user, error) {
-				console.log(user);
-			    console.log("User cancelled the Facebook login or did not fully authorize.");
-			    me.fireEvent('unauthorized');
-			  }
-			});
+//	        Parse.FacebookUtils.logIn("email", {
+//			  success: function(user) {
+//			    if (!user.existed()) {
+//			      console.log("User signed up and logged in through Facebook!");
+//			    } else {
+//			      console.log("User logged in through Facebook!");
+//			    }
+//			    me.fireEvent('connected');
+//			  },
+//			  error: function(user, error) {
+//				console.log(user);
+//			    console.log("User cancelled the Facebook login or did not fully authorize.");
+//			    me.fireEvent('unauthorized');
+//			  }
+//			});
 
         // We set a timeout in case there is no response from the Facebook `init` method. This often happens if the
         // Facebook application is incorrectly configured (for example if the browser URL does not match the one
         // configured on the Facebook app.)
-        me.fbLoginTimeout = setTimeout(function() {
-            me.fireEvent('loginStatus');
-            me.fireEvent('exception', {
-                type: 'timeout',
-                msg: 'The request to Facebook timed out.'
-            });
-        }, me.fbTimeout);
+//        me.fbLoginTimeout = setTimeout(function() {
+//            me.fireEvent('loginStatus');
+//            me.fireEvent('exception', {
+//                type: 'timeout',
+//                msg: 'The request to Facebook timed out.'
+//            });
+//        }, me.fbTimeout);
     },
 
     /**

@@ -59,10 +59,10 @@ Ext.define('WL.controller.Businesses', {
 
     init: function() {
     	var me = this;
-//        WL.app.on({
-//            localStorageData: 'onLocalStorageData',
-//            scope: me
-//        });
+        WL.app.on({
+            localStorageData: 'onLocalStorageData',
+            scope: me
+        });
 //console.log(me.getRecommendations());
         me.getLocation(function (location) {
             me.getBusinesses(location, function (store) {
@@ -74,14 +74,14 @@ Ext.define('WL.controller.Businesses', {
         });
     },
 
-//    onLocalStorageData: function(data) {
-//        var store = Ext.getStore('BusinessStore');
-//console.log('here');
-//        this.initContainer();
-//        store.setData(data);
-//        store.fireEvent('load', store, store.data);
-//        this.onFirstLoad(data.profileId);
-//    },
+    onLocalStorageData: function(data) {
+        var store = Ext.getStore('BusinessStore');
+console.log('here');
+        this.initContainer();
+        store.setData(data);
+        store.fireEvent('load', store, store.data);
+        this.onFirstLoad(data.profileId);
+    },
 
     onFacebookLogin: function() {
 
@@ -91,7 +91,7 @@ Ext.define('WL.controller.Businesses', {
 //                businesses: operation.getResponse().responseText,
 //                profileId: FB.getUserID()
 //            });
-console.log(cache);
+
             if (window.localStorage && window.localStorage.WL && window.localStorage.WL == cache) {
                 return false;
             }

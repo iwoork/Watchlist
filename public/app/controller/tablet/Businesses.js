@@ -15,12 +15,12 @@ Ext.define('WL.controller.tablet.Businesses', {
 
         this.callParent();
 
-        WL.Facebook.on({
-            connected: this.onFacebookLogin,
-            logout: this.onFacebookLogout,
-            unauthorized: this.onFacebookUnauthorized,
-            scope: this
-        });
+//        WL.Facebook.on({
+//            connected: this.onFacebookLogin,
+//            logout: this.onFacebookLogout,
+//            unauthorized: this.onFacebookUnauthorized,
+//            scope: this
+//        });
     },
 
     onFacebookLogin: function() {
